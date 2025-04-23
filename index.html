@@ -9,14 +9,119 @@
 </head>
 <body>
   <div class='links'>
-  <a href="/test">test1</a>
-  <a href="#">test2</a>
-  <a href="https://codepen.io/pen/asdasd/asdasd">test3</a>
-  <a href="https://test.codepen.io/pen/asdasd">test4</a>
-  <a href="https://www.youtube.com/watch?v=RO5HW-yqSaQ&list=PLOTcfqYE4DkvwlYw4nFimY64EHxjqTY3o&index=112">test5</a>
-  <a href="https://gmail.com/" rel="nofollow">test6</a>
-  <a href="https://gmail.com/" rel="dofollow">test7</a>
-  <a href="https://gmail.com/">test8</a>
+ <!-- Internal посилання (відносний шлях) -->
+<a href="/home">Home</a>
+<a href="products.html">Products</a>
+<a href="./team">Relative Dot Slash</a>
+<a href="../up-one-level">Relative Up One Level</a>
+
+<!-- Internal абсолютні посилання -->
+<a href="https://gastello.github.io/links-test/about">Absolute About</a>
+<a href="https://gastello.github.io/links-test/blog/post1">Absolute Blog Post</a>
+
+<!-- Поламані internal -->
+<a href="/this-page-does-not-exist">Broken Internal</a>
+<a href="https://gastello.github.io/links-test/missing-page">Broken Absolute Internal</a>
+
+<!-- External посилання -->
+<a href="https://google.com">Google</a>
+<a href="https://wikipedia.org">Wikipedia</a>
+
+<!-- External посилання з різними rel -->
+<a href="https://external-site.com" rel="nofollow noopener noreferrer">All Rel Combined</a>
+<a href="https://external-site.com" rel="ugc">User Generated Content</a>
+<a href="https://external-site.com" rel="sponsored">Sponsored Link</a>
+
+<!-- Якорні -->
+<a href="#top">Go to Top</a>
+<a href="#bottom">Go to Bottom</a>
+
+<!-- Пусті посилання -->
+<a href="#">Empty # Link</a>
+<a href="">Truly Empty Href</a>
+<a href=" ">Href with Space</a>
+
+<!-- JavaScript псевдо-посилання -->
+<a href="javascript:void(0)">JS Void Link</a>
+<a href="javascript:;">JS Short Void</a>
+<a href="javascript:alert('Hello!')">JS Alert</a>
+
+<!-- Піддомени -->
+<a href="https://subdomain.gastello.github.io/">Subdomain Homepage</a>
+<a href="https://blog.gastello.github.io/links-test/article">Subdomain Article</a>
+
+<!-- Email та телефон -->
+<a href="mailto:support@example.com?subject=Help Needed">Support Email</a>
+<a href="tel:18001234567">Support Call</a>
+
+<!-- FTP -->
+<a href="ftp://ftp.example.com/public-file.zip">FTP Download</a>
+
+<!-- Файли -->
+<a href="/downloads/report.docx">DOCX Report</a>
+<a href="/downloads/data.csv">CSV Data</a>
+<a href="https://gastello.github.io/links-test/media/video.mp4">Video File</a>
+<a href="https://gastello.github.io/links-test/media/audio.mp3">Audio File</a>
+
+<!-- Target варіації -->
+<a href="https://external.com" target="_blank" rel="noopener noreferrer">Blank Target</a>
+<a href="/internal-page" target="_self">Self Target</a>
+<a href="/internal-page" target="_parent">Parent Frame</a>
+<a href="/internal-page" target="_top">Top Frame</a>
+
+<!-- Broken external -->
+<a href="https://nonexistent.baddomain/">Nonexistent Domain</a>
+<a href="https://404site.com/nopagehere">404 Page</a>
+
+<!-- Invalid href -->
+<a href="http:///badurl">Bad Href</a>
+<a href="hxxp://wrong-protocol.com">Wrong Protocol</a>
+<a href="htps://misspelled-url.com">Misspelled Protocol</a>
+<a href="://missing-protocol.com">Missing Protocol</a>
+<a href="/////">Only Slashes</a>
+
+<!-- Suspicious schemes -->
+<a href="mailto:">Empty Mailto</a>
+<a href="tel:">Empty Tel</a>
+<a href="ftp://">Empty FTP</a>
+
+<!-- Data attributes -->
+<a href="/profile" data-user-id="456">Profile with Data Attribute</a>
+<a href="/settings" data-role="admin">Admin Settings</a>
+
+<!-- Custom protocol (hypothetical apps) -->
+<a href="appname://open">Custom App Protocol</a>
+<a href="magnet:?xt=urn:btih:abcdef1234567890">Magnet Torrent Link</a>
+
+<!-- Social media посилання -->
+<a href="https://facebook.com/profile">Facebook Profile</a>
+<a href="https://twitter.com/username">Twitter Profile</a>
+<a href="https://linkedin.com/in/username">LinkedIn Profile</a>
+
+<!-- Content delivery networks (CDN) -->
+<a href="https://cdn.example.com/assets/script.js">CDN JS File</a>
+<a href="https://images.cdn.example.com/photo.png">CDN Image</a>
+
+<!-- Hidden links (not visible but in HTML) -->
+<a href="/hidden" style="display:none;">Hidden Link</a>
+<a href="/opacity" style="opacity:0;">Invisible Link</a>
+
+<!-- Links inside comments (should not be counted) -->
+<!-- <a href="https://commentedoutlink.com">Commented Out</a> -->
+
+<!-- Links with strange characters -->
+<a href="/page?query=param&another=value">Query String</a>
+<a href="/weird#hash123">Hash Link with ID</a>
+<a href="/unicode/😀">Emoji in URL</a>
+
+<!-- Links with double slashes -->
+<a href="//cdn.example.com/script.js">Protocol-Relative URL</a>
+
+<!-- Placeholder links -->
+<a href="about:blank">About Blank</a>
+<a href="chrome://settings/">Chrome Settings Link</a>
+<a href="edge://favorites/">Edge Favorites Link</a>
+
 </div>
 </body>
 </html>
