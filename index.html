@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class='links'>
-<a href="https://gastello.github.io/links-test/">https://gastello.github.io/links-test/</a>
+<a href="https://gastello.github.io/links-test/" rel="nofollow">https://gastello.github.io/links-test/</a>
  <!-- Internal посилання (відносний шлях) -->
 <a href="/home">Home</a>
 <a href="products.html">Products</a>
@@ -25,7 +25,7 @@
 <a href="https://gastello.github.io/links-test/missing-page">Broken Absolute Internal</a>
 
 <!-- External посилання -->
-<a href="https://google.com">Google</a>
+<a href="https://google.com" rel="nofollow">Google</a>
 <a href="https://wikipedia.org">Wikipedia</a>
 
 <!-- External посилання з різними rel -->
@@ -80,14 +80,14 @@
 <!-- Invalid href -->
 <a href="http:///badurl">Bad Href</a>
 <a href="hxxp://wrong-protocol.com">Wrong Protocol</a>
-<a href="htps://misspelled-url.com">Misspelled Protocol</a>
+<a href="htps://misspelled-url.com" rel="nofollow">Misspelled Protocol</a>
 <a href="://missing-protocol.com">Missing Protocol</a>
 <a href="/////">Only Slashes</a>
 
 <!-- Suspicious schemes -->
-<a href="mailto:">Empty Mailto</a>
+<a href="mailto:" rel="nofollow">Empty Mailto</a>
 <a href="tel:">Empty Tel</a>
-<a href="ftp://">Empty FTP</a>
+<a href="ftp://" rel="nofollow">Empty FTP</a>
 
 <!-- Data attributes -->
 <a href="/profile" data-user-id="456">Profile with Data Attribute</a>
@@ -103,7 +103,7 @@
 <a href="https://linkedin.com/in/username">LinkedIn Profile</a>
 
 <!-- Content delivery networks (CDN) -->
-<a href="https://cdn.example.com/assets/script.js">CDN JS File</a>
+<a href="https://cdn.example.com/assets/script.js" rel="nofollow">CDN JS File</a>
 <a href="https://images.cdn.example.com/photo.png">CDN Image</a>
 
 <!-- Hidden links (not visible but in HTML) -->
@@ -115,7 +115,7 @@
 
 <!-- Links with strange characters -->
 <a href="/page?query=param&another=value">Query String</a>
-<a href="/weird#hash123">Hash Link with ID</a>
+<a href="/weird#hash123" rel="nofollow">Hash Link with ID</a>
 <a href="/unicode/😀">Emoji in URL</a>
 
 <!-- Links with double slashes -->
