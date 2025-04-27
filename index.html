@@ -26,12 +26,15 @@
   <a href="/hidden" style="display:none;">Hidden Link</a>
   <a href="/opacity" style="opacity:0;">Invisible Link</a>
   <a href="/unicode/😀">Emoji in URL</a>
+  <div><a href="/nested/link">Nested Internal Link</a></div>
+  <ul><li><a href="/list/item1">List Item 1</a></li><li><a href="/list/item2">List Item 2</a></li></ul>
 
   <h2>internal-nofollow</h2>
   <a href="/weird#hash123" rel="nofollow">Hash Link with ID</a>
   <a href="/internal-nofollow-page" rel="nofollow">Internal NoFollow Example</a>
   <a href="/hidden-nofollow" style="display:none;" rel="nofollow">Hidden NoFollow Link</a>
   <a href="/private/data" rel="nofollow ugc">Private Data NoFollow UGC</a>
+  <div><a href="/nested/internal-nofollow" rel="nofollow">Nested Internal NoFollow</a></div>
 
   <h2>external-dofollow</h2>
   <a href="https://wikipedia.org">Wikipedia</a>
@@ -40,16 +43,20 @@
   <a href="https://github.com/openai">GitHub OpenAI</a>
   <a href="https://linkedin.com/in/username">LinkedIn Profile</a>
   <a href="https://example.com/page?utm_source=newsletter&utm_medium=email">External UTM Example</a>
+  <a href="https://external.com" target="_blank" rel="noopener noreferrer">Blank Target</a>
+  <a href="https://example.com/page-with-image"><img src="https://via.placeholder.com/150" alt="Example Image"></a>
 
   <h2>external-nofollow</h2>
   <a href="https://google.com" rel="nofollow">Google</a>
   <a href="https://external-site.com" rel="nofollow noopener noreferrer">All Rel Combined</a>
   <a href="https://cdn.example.com/assets/script.js" rel="nofollow">CDN JS File</a>
-  <a href="https://external.com" target="_blank" rel="noopener noreferrer">Blank Target</a>
   <a href="https://phishing-site.ru" rel="nofollow">Phishing Domain</a>
   <a href="https://buybacklinks.com" rel="nofollow sponsored">Buy Backlinks</a>
   <a href="https://shady-deals.ru" rel="nofollow">Shady Deals RU</a>
   <a href="https://suspicious.co?ref=spam" rel="nofollow ugc">Spam Referrer</a>
+  <a href="https://badsite.com" rel="nofollow noreferrer">NoReferrer NoFollow</a>
+  <a href="https://someforum.com/post/123" rel="nofollow ugc">Forum Post</a>
+  <div><a href="https://external-nested.com" rel="nofollow">Nested External NoFollow</a></div>
 
   <h2>subdomain-dofollow</h2>
   <a href="https://subdomain.gastello.github.io/">Subdomain Homepage</a>
@@ -75,6 +82,7 @@
   <a href="vbscript:alert('XSS')">VBScript Injection</a>
   <a href="ftp://ftp.example.com/file.txt">FTP Download</a>
   <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Android Intent</a>
+  <a href="tel:1234567890">Telephone Link</a>
 
   <h2>suspicious-nofollow</h2>
   <a href="mailto:" rel="nofollow">Empty Mailto</a>
@@ -85,8 +93,10 @@
   <a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==" rel="nofollow">Base64 Data URI</a>
   <a href="blob:https://example.com/12345" rel="nofollow">Blob URL</a>
   <a href="filesystem:https://example.com/temporary/myfile" rel="nofollow">Filesystem URL</a>
+  <a href="sms:+1234567890" rel="nofollow">SMS Link</a>
 
 </div>
+
 
 
 </body>
