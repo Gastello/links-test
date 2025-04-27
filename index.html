@@ -10,125 +10,84 @@
 <body>
   <div class="links">
 
-  <h2>Internal Links (Relative)</h2>
+  <h2>internal-dofollow</h2>
   <a href="/home">Home</a>
   <a href="products.html">Products</a>
   <a href="./team">Relative Dot Slash</a>
   <a href="../up-one-level">Relative Up One Level</a>
-
-  <h2>Internal Links (Absolute)</h2>
+  <a href="/internal-page?utm_source=google&utm_medium=cpc">Internal with UTM</a>
+  <a href="/blog/post#comments">Internal with Hash</a>
   <a href="https://gastello.github.io/links-test/about">Absolute About</a>
   <a href="https://gastello.github.io/links-test/blog/post1">Absolute Blog Post</a>
-
-  <h2>Broken Internal Links</h2>
-  <a href="/this-page-does-not-exist">Broken Internal</a>
-  <a href="https://gastello.github.io/links-test/missing-page">Broken Absolute Internal</a>
-
-  <h2>External Links</h2>
-  <a href="https://google.com" rel="nofollow">Google</a>
-  <a href="https://wikipedia.org">Wikipedia</a>
-
-  <h2>External Links with Various rel</h2>
-  <a href="https://external-site.com" rel="nofollow noopener noreferrer">All Rel Combined</a>
-  <a href="https://external-site.com" rel="ugc">User Generated Content</a>
-  <a href="https://external-site.com" rel="sponsored">Sponsored Link</a>
-
-  <h2>Anchor Links</h2>
-  <a href="#top">Go to Top</a>
-  <a href="#bottom">Go to Bottom</a>
-
-  <h2>Empty and Placeholder Links</h2>
-  <a href="#">Empty # Link</a>
-  <a href="">Truly Empty Href</a>
-  <a href=" ">Href with Space</a>
-
-  <h2>JavaScript Links</h2>
-  <a href="javascript:void(0)">JS Void Link</a>
-  <a href="javascript:;">JS Short Void</a>
-  <a href="javascript:alert('Hello!')">JS Alert</a>
-
-  <h2>Subdomain Links (gastello.github.io)</h2>
-  <a href="https://subdomain.gastello.github.io/">Subdomain Homepage</a>
-  <a href="https://blog.gastello.github.io/links-test/article">Subdomain Article</a>
-
-  <h2>External Subdomains</h2>
-  <a href="https://old.lemmy.institute/u/GaryCooper@kbin.social">old.lemmy.institute</a>
-  <a href="https://elearning.health.go.ke/mod/forum/discuss.php?d=24788&parent=42859">elearning.health.go.ke</a>
-  <a href="https://writemyessay1.de.tl/">writemyessay1.de.tl</a>
-
-  <h2>Email and Telephone Links</h2>
-  <a href="mailto:support@example.com?subject=Help Needed">Support Email</a>
-  <a href="tel:18001234567">Support Call</a>
-
-  <h2>FTP Links</h2>
-  <a href="ftp://ftp.example.com/public-file.zip">FTP Download</a>
-
-  <h2>File Downloads</h2>
   <a href="/downloads/report.docx">DOCX Report</a>
   <a href="/downloads/data.csv">CSV Data</a>
-  <a href="https://gastello.github.io/links-test/media/video.mp4">Video File</a>
-  <a href="https://gastello.github.io/links-test/media/audio.mp3">Audio File</a>
+  <a href="/profile" data-user-id="456">Profile with Data Attribute</a>
+  <a href="/settings" data-role="admin">Admin Settings</a>
+  <a href="/hidden" style="display:none;">Hidden Link</a>
+  <a href="/opacity" style="opacity:0;">Invisible Link</a>
+  <a href="/unicode/😀">Emoji in URL</a>
 
-  <h2>Links with Target Attribute</h2>
+  <h2>internal-nofollow</h2>
+  <a href="/weird#hash123" rel="nofollow">Hash Link with ID</a>
+  <a href="/internal-nofollow-page" rel="nofollow">Internal NoFollow Example</a>
+  <a href="/hidden-nofollow" style="display:none;" rel="nofollow">Hidden NoFollow Link</a>
+  <a href="/private/data" rel="nofollow ugc">Private Data NoFollow UGC</a>
+
+  <h2>external-dofollow</h2>
+  <a href="https://wikipedia.org">Wikipedia</a>
+  <a href="https://openai.com">OpenAI</a>
+  <a href="https://images.cdn.example.com/photo.png">CDN Image</a>
+  <a href="https://github.com/openai">GitHub OpenAI</a>
+  <a href="https://linkedin.com/in/username">LinkedIn Profile</a>
+  <a href="https://example.com/page?utm_source=newsletter&utm_medium=email">External UTM Example</a>
+
+  <h2>external-nofollow</h2>
+  <a href="https://google.com" rel="nofollow">Google</a>
+  <a href="https://external-site.com" rel="nofollow noopener noreferrer">All Rel Combined</a>
+  <a href="https://cdn.example.com/assets/script.js" rel="nofollow">CDN JS File</a>
   <a href="https://external.com" target="_blank" rel="noopener noreferrer">Blank Target</a>
-  <a href="/internal-page" target="_self">Self Target</a>
-  <a href="/internal-page" target="_parent">Parent Frame</a>
-  <a href="/internal-page" target="_top">Top Frame</a>
+  <a href="https://phishing-site.ru" rel="nofollow">Phishing Domain</a>
+  <a href="https://buybacklinks.com" rel="nofollow sponsored">Buy Backlinks</a>
+  <a href="https://shady-deals.ru" rel="nofollow">Shady Deals RU</a>
+  <a href="https://suspicious.co?ref=spam" rel="nofollow ugc">Spam Referrer</a>
 
-  <h2>Broken External Links</h2>
-  <a href="https://nonexistent.baddomain/">Nonexistent Domain</a>
-  <a href="https://404site.com/nopagehere">404 Page</a>
+  <h2>subdomain-dofollow</h2>
+  <a href="https://subdomain.gastello.github.io/">Subdomain Homepage</a>
+  <a href="https://blog.gastello.github.io/links-test/article">Subdomain Article</a>
+  <a href="https://media.gastello.github.io/video.mp4">Subdomain Video</a>
+  <a href="https://files.sub.gastello.github.io/download.zip">Subdomain File</a>
 
-  <h2>Invalid Hrefs</h2>
+  <h2>subdomain-nofollow</h2>
+  <a href="https://nofollow.subdomain.gastello.github.io/" rel="nofollow">Subdomain NoFollow</a>
+  <a href="https://ugc.subdomain.gastello.github.io/" rel="nofollow ugc">Subdomain UGC NoFollow</a>
+
+  <h2>suspicious-dofollow</h2>
   <a href="http:///badurl">Bad Href</a>
   <a href="hxxp://wrong-protocol.com">Wrong Protocol</a>
-  <a href="htps://misspelled-url.com" rel="nofollow">Misspelled Protocol</a>
+  <a href="htps://misspelled-url.com">Misspelled Protocol</a>
   <a href="://missing-protocol.com">Missing Protocol</a>
   <a href="/////">Only Slashes</a>
+  <a href="appname://open">Custom App Protocol</a>
+  <a href="magnet:?xt=urn:btih:abcdef1234567890">Magnet Torrent Link</a>
+  <a href="chrome://settings/">Chrome Settings</a>
+  <a href="edge://favorites/">Edge Favorites</a>
+  <a href="view-source:https://example.com">View Source</a>
+  <a href="vbscript:alert('XSS')">VBScript Injection</a>
+  <a href="ftp://ftp.example.com/file.txt">FTP Download</a>
+  <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Android Intent</a>
 
-  <h2>Suspicious Schemes</h2>
+  <h2>suspicious-nofollow</h2>
   <a href="mailto:" rel="nofollow">Empty Mailto</a>
   <a href="tel:">Empty Tel</a>
   <a href="ftp://" rel="nofollow">Empty FTP</a>
-
-  <h2>Data Attributes Links</h2>
-  <a href="/profile" data-user-id="456">Profile with Data Attribute</a>
-  <a href="/settings" data-role="admin">Admin Settings</a>
-
-  <h2>Custom Protocol Links</h2>
-  <a href="appname://open">Custom App Protocol</a>
-  <a href="magnet:?xt=urn:btih:abcdef1234567890">Magnet Torrent Link</a>
-
-  <h2>Social Media Links</h2>
-  <a href="https://facebook.com/profile">Facebook Profile</a>
-  <a href="https://twitter.com/username">Twitter Profile</a>
-  <a href="https://linkedin.com/in/username">LinkedIn Profile</a>
-
-  <h2>Content Delivery Networks (CDN)</h2>
-  <a href="https://cdn.example.com/assets/script.js" rel="nofollow">CDN JS File</a>
-  <a href="https://images.cdn.example.com/photo.png">CDN Image</a>
-
-  <h2>Hidden Links</h2>
-  <a href="/hidden" style="display:none;">Hidden Link</a>
-  <a href="/opacity" style="opacity:0;">Invisible Link</a>
-
-  <h2>Commented Out Links (should not count)</h2>
-  <!-- <a href="https://commentedoutlink.com">Commented Out</a> -->
-
-  <h2>Links with Strange Characters</h2>
-  <a href="/page?query=param&another=value">Query String</a>
-  <a href="/weird#hash123" rel="nofollow">Hash Link with ID</a>
-  <a href="/unicode/😀">Emoji in URL</a>
-
-  <h2>Protocol-Relative Links</h2>
-  <a href="//cdn.example.com/script.js">Protocol-Relative URL</a>
-
-  <h2>Browser Placeholder Links</h2>
-  <a href="about:blank">About Blank</a>
-  <a href="chrome://settings/">Chrome Settings Link</a>
-  <a href="edge://favorites/">Edge Favorites Link</a>
+  <a href="javascript:void(0)" rel="nofollow">JS Void NoFollow</a>
+  <a href="javascript:alert('hello')" rel="nofollow">JS Alert NoFollow</a>
+  <a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==" rel="nofollow">Base64 Data URI</a>
+  <a href="blob:https://example.com/12345" rel="nofollow">Blob URL</a>
+  <a href="filesystem:https://example.com/temporary/myfile" rel="nofollow">Filesystem URL</a>
 
 </div>
+
 
 </body>
 </html>
