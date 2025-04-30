@@ -96,7 +96,28 @@
   <a href="sms:+1234567890" rel="nofollow">SMS Link</a>
 
 </div>
+<button id="addLinkBtn" style="margin: 20px; padding: 10px 20px;">➕ Add Test Link</button>
 
+<script>
+  // Проста функція для додавання посилання в кінець .links
+  function appendLink(href, text, rel = '') {
+    const container = document.querySelector('.links');
+    if (!container) return;
+
+    const a = document.createElement('a');
+    a.href = href;
+    a.textContent = text;
+    a.style.display = 'block'; // для кращої видимості
+    if (rel) a.setAttribute('rel', rel);
+
+    container.appendChild(a);
+  }
+
+  // Обробник події для кнопки
+  document.getElementById('addLinkBtn').addEventListener('click', () => {
+    appendLink('https://example.com/new-link', '➕ Dynamically Added Link', 'nofollow');
+  });
+</script>
 
 
 </body>
