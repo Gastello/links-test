@@ -19,11 +19,19 @@
   </style>
 </head>
 <body>
-  <p>Посилання у локальному фреймі класифікуються відносно адреси цього фрейму.</p>
+  <p>Приклади класифікуються відносно адреси цього фрейму. Звичайний клік не переходить за тестовими адресами.</p>
   <a href="/links-test/iframe-target.html">Internal — сторінка цього сайту</a>
   <a href="https://media.gastello.github.io/video.mp4">Subdomain — піддомен цього сайту</a>
   <a href="https://example.org/iframe-external">External — інший сайт</a>
   <a href="#">Suspicious — посилання лише з #</a>
   <button type="button" onclick="if (false) window.location.href = frameNextUrl">Unknown — динамічна JavaScript-адреса</button>
+  <script>
+    document.body.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (link) {
+        event.preventDefault();
+      }
+    });
+  </script>
 </body>
 </html>
