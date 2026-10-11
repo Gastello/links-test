@@ -20,10 +20,10 @@
 </head>
 <body>
   <p>Посилання у локальному фреймі класифікуються відносно адреси цього фрейму.</p>
-  <a href="/links-test/iframe-target.html">Internal link in iframe</a>
-  <a href="https://example.org/iframe-external">External dofollow in iframe</a>
-  <a href="https://example.org/iframe-nofollow" rel="nofollow">External nofollow in iframe</a>
-  <button type="button" onclick="window.location.assign('#iframe-js')">JS navigation in iframe</button>
-  <button type="button" onclick="if (false) window.location.href = frameNextUrl">Dynamic JS destination in iframe</button>
+  <a href="/links-test/iframe-target.html">Internal — сторінка цього сайту</a>
+  <a href="https://media.gastello.github.io/video.mp4">Subdomain — піддомен цього сайту</a>
+  <a href="https://example.org/iframe-external">External — інший сайт</a>
+  <a href="#">Suspicious — посилання лише з #</a>
+  <button type="button" onclick="if (false) window.location.href = frameNextUrl">Unknown — динамічна JavaScript-адреса</button>
 </body>
 </html>
