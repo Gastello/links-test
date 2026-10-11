@@ -1,42 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Links Highlighter — browser test</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="links">
+  <header class="page-header">
+    <h1>Links Highlighter — тест у браузері</h1>
+    <p class="page-intro">Демо-сторінка з інструкцією для початку роботи та прикладами основних можливостей Links Highlighter.</p>
+    <section class="guide" aria-labelledby="guide-title">
+      <h2 id="guide-title">Початок роботи з розширенням</h2>
+      <ol class="guide-steps">
+        <li>
+          <strong>Встановіть розширення.</strong>
+          Відкрийте <code>chrome://extensions</code>, увімкніть <strong>Developer mode</strong>, натисніть <strong>Load unpacked</strong> і виберіть папку Links Highlighter. Закріпіть іконку розширення на панелі Chrome, щоб швидко відкривати popup.
+        </li>
+        <li>
+          <strong>Відкрийте сторінку та popup.</strong>
+          Перейдіть на сайт, який хочете проаналізувати, оновіть вкладку після встановлення розширення та натисніть його іконку. Розширення працює на звичайних HTTP/HTTPS сторінках; браузерні службові сторінки недоступні.
+        </li>
+        <li>
+          <strong>Налаштуйте, які посилання показувати.</strong>
+          У <strong>Settings</strong> виберіть тему, типи Internal/External і dofollow/nofollow. Додатково можна ввімкнути suspicious, iframe та JavaScript групи. Наведіть на значок <code>?</code>, щоб прочитати підказку до опції.
+        </li>
+        <li>
+          <strong>Підсвітіть і перегляньте сторінку.</strong>
+          Натисніть <strong>Highlight</strong>, щоб застосувати вибрані фільтри. Використайте <strong>Reset</strong>, щоб прибрати позначки розширення. Кольори типів посилань та тимчасового виділення Find on page налаштовуються окремо в Settings.
+        </li>
+        <li>
+          <strong>Перегляньте Full info.</strong>
+          Розгорніть панель, щоб побачити зведені лічильники та списки посилань за категоріями. Шукайте за анкором або адресою; бейджі показують dofollow/nofollow, iframe, JavaScript, suspicious і hidden. <strong>Find on page</strong> закриває popup, прокручує сторінку до елемента й тимчасово виділяє його.
+        </li>
+        <li>
+          <strong>Увімкніть автоматизацію за бажанням.</strong>
+          <strong>Highlight on page load</strong> автоматично підсвічує сторінку після завантаження. <strong>Highlight new links in real time</strong> стежить за новими та зміненими посиланнями: окремо цей режим запускається кнопкою Highlight. Якщо ввімкнені обидві опції, після перезавантаження сторінка підсвітиться і спостереження почнеться автоматично — натискати Highlight не потрібно.
+        </li>
+      </ol>
+    </section>
+    <details class="test-checklist">
+      <summary>Довідка: що означають категорії посилань</summary>
+      <div class="expected-results">
+        <div><strong>Internal</strong><span>Посилання на цей самий сайт, зокрема адреси на <code>gastello.github.io/links-test/</code>.</span></div>
+        <div><strong>Subdomain</strong><span>Піддомен поточного домену: <code>media.gastello.github.io</code> є піддоменом <code>gastello.github.io</code>.</span></div>
+        <div><strong>External</strong><span>Посилання на інший сайт.</span></div>
+        <div><strong>Dofollow / nofollow</strong><span>Перевіряються окремо; на Full info кожне посилання має відповідний бейдж.</span></div>
+        <div><strong>Suspicious</strong><span>Некоректні URL та непідтримувані схеми; незалежні від Internal/External фільтра.</span></div>
+        <div><strong>Unknown destination</strong><span>JS-навігація розпізнана, але адресу визначити неможливо.</span></div>
+      </div>
+      <p class="test-note">Очікувані результати нижче відповідають сторінці <code>https://gastello.github.io/links-test/</code>. Наприклад, <code>https://gastello.github.io/links-test/home</code> — Internal, а <code>media.gastello.github.io</code> — Subdomain. На копії, відкритій з іншого сайту, категорії залежать від її адреси.</p>
+    </details>
+    <nav class="test-navigation" aria-label="Розділи тестової сторінки">
+      <a href="#link-fixtures">Типи посилань</a>
+      <a href="#iframe-tests">Iframe</a>
+      <a href="#javascript-tests">JavaScript</a>
+      <a href="#mutation-tests">Real-time controls</a>
+    </nav>
+  </header>
+  <main>
+  <section class="links" id="link-fixtures" aria-label="Посилання для перевірки класифікації">
 
-  <h2>internal-dofollow</h2>
-  <a href="/home">Home</a>
-  <a href="products.html">Products</a>
-  <a href="./team">Relative Dot Slash</a>
-  <a href="../up-one-level">Relative Up One Level</a>
-  <a href="/internal-page?utm_source=google&utm_medium=cpc">Internal with UTM</a>
-  <a href="/blog/post#comments">Internal with Hash</a>
-  <a href="https://gastello.github.io/links-test/about">Absolute About</a>
-  <a href="https://gastello.github.io/links-test/blog/post1">Absolute Blog Post</a>
-  <a href="/downloads/report.docx">DOCX Report</a>
-  <a href="/downloads/data.csv">CSV Data</a>
-  <a href="/profile" data-user-id="456">Profile with Data Attribute</a>
-  <a href="/settings" data-role="admin">Admin Settings</a>
-  <a href="/hidden" style="display:none;">Hidden Link</a>
-  <a href="/opacity" style="opacity:0;">Invisible Link</a>
-  <a href="/unicode/😀">Emoji in URL</a>
-  <div><a href="/nested/link">Nested Internal Link</a></div>
-  <ul><li><a href="/list/item1">List Item 1</a></li><li><a href="/list/item2">List Item 2</a></li></ul>
+  <h2>Internal — dofollow</h2>
+  <a href="https://gastello.github.io/links-test/another-page">Посилання на цей сайт (абсолютна адреса)</a>
+  <a href="https://gastello.github.io/links-test/home">Home</a>
+  <a href="https://gastello.github.io/links-test/products.html">Products</a>
+  <a href="https://gastello.github.io/links-test/team">Team page</a>
+  <a href="https://gastello.github.io/up-one-level">Page on the same domain</a>
+  <a href="https://gastello.github.io/links-test/internal-page?utm_source=google&utm_medium=cpc">Internal with UTM</a>
+  <a href="https://gastello.github.io/links-test/blog/post#comments">Internal with Hash</a>
+  <a href="https://gastello.github.io/links-test/about">About</a>
+  <a href="https://gastello.github.io/links-test/blog/post1">Blog Post</a>
+  <a href="https://gastello.github.io/links-test/downloads/report.docx">DOCX Report</a>
+  <a href="https://gastello.github.io/links-test/downloads/data.csv">CSV Data</a>
+  <a href="https://gastello.github.io/links-test/profile" data-user-id="456">Profile with Data Attribute</a>
+  <a href="https://gastello.github.io/links-test/settings" data-role="admin">Admin Settings</a>
+  <a href="https://gastello.github.io/links-test/hidden" style="display:none;">Hidden Link</a>
+  <a href="https://gastello.github.io/links-test/opacity" style="opacity:0;">Invisible Link</a>
+  <a href="https://gastello.github.io/links-test/unicode/😀">Emoji in URL</a>
+  <div><a href="https://gastello.github.io/links-test/nested/link">Nested Internal Link</a></div>
+  <ul><li><a href="https://gastello.github.io/links-test/list/item1">List Item 1</a></li><li><a href="https://gastello.github.io/links-test/list/item2">List Item 2</a></li></ul>
 
-  <h2>internal-nofollow</h2>
-  <a href="/weird#hash123" rel="nofollow">Hash Link with ID</a>
-  <a href="/internal-nofollow-page" rel="nofollow">Internal NoFollow Example</a>
-  <a href="/hidden-nofollow" style="display:none;" rel="nofollow">Hidden NoFollow Link</a>
-  <a href="/private/data" rel="nofollow ugc">Private Data NoFollow UGC</a>
-  <div><a href="/nested/internal-nofollow" rel="nofollow">Nested Internal NoFollow</a></div>
+  <h2>Internal — nofollow / ugc</h2>
+  <a href="https://gastello.github.io/links-test/weird#hash123" rel="nofollow">Hash Link with ID</a>
+  <a href="https://gastello.github.io/links-test/internal-nofollow-page" rel="nofollow">Internal NoFollow Example</a>
+  <a href="https://gastello.github.io/links-test/hidden-nofollow" style="display:none;" rel="nofollow">Hidden NoFollow Link</a>
+  <a href="https://gastello.github.io/links-test/private/data" rel="nofollow ugc">Private Data NoFollow UGC</a>
+  <div><a href="https://gastello.github.io/links-test/nested/internal-nofollow" rel="nofollow">Nested Internal NoFollow</a></div>
 
-  <h2>external-dofollow</h2>
+  <h2>External — dofollow</h2>
   <a href="https://wikipedia.org">Wikipedia</a>
   <a href="https://openai.com">OpenAI</a>
   <a href="https://images.cdn.example.com/photo.png">CDN Image</a>
@@ -45,8 +98,9 @@
   <a href="https://example.com/page?utm_source=newsletter&utm_medium=email">External UTM Example</a>
   <a href="https://external.com" target="_blank" rel="noopener noreferrer">Blank Target</a>
   <a href="https://example.com/page-with-image"><img src="https://picsum.photos/200/300" alt="Example Image"></a>
+  <a href="https://example.net/demo">Посилання на інший сайт — External</a>
 
-  <h2>external-nofollow</h2>
+  <h2>External — nofollow / sponsored / ugc</h2>
   <a href="https://google.com" rel="nofollow">Google</a>
   <a href="https://external-site.com" rel="nofollow noopener noreferrer">All Rel Combined</a>
   <a href="https://cdn.example.com/assets/script.js" rel="nofollow">CDN JS File</a>
@@ -58,17 +112,20 @@
   <a href="https://someforum.com/post/123" rel="nofollow ugc">Forum Post</a>
   <div><a href="https://external-nested.com" rel="nofollow">Nested External NoFollow</a></div>
 
-  <h2>subdomain-dofollow</h2>
+  <h2>Subdomain of gastello.github.io — dofollow</h2>
   <a href="https://subdomain.gastello.github.io/">Subdomain Homepage</a>
   <a href="https://blog.gastello.github.io/links-test/article">Subdomain Article</a>
   <a href="https://media.gastello.github.io/video.mp4">Subdomain Video</a>
   <a href="https://files.sub.gastello.github.io/download.zip">Subdomain File</a>
 
-  <h2>subdomain-nofollow</h2>
+  <h2>Subdomain — nofollow / ugc</h2>
   <a href="https://nofollow.subdomain.gastello.github.io/" rel="nofollow">Subdomain NoFollow</a>
   <a href="https://ugc.subdomain.gastello.github.io/" rel="nofollow ugc">Subdomain UGC NoFollow</a>
 
-  <h2>suspicious-dofollow</h2>
+  <h2>Suspicious — dofollow</h2>
+  <a href="#" id="hash-only-link">Посилання лише з #</a>
+  <a id="missing-href-link">Посилання без href</a>
+  <a href="">Посилання з порожнім href</a>
   <a href="http:///badurl">Bad Href</a>
   <a href="hxxp://wrong-protocol.com">Wrong Protocol</a>
   <a href="htps://misspelled-url.com">Misspelled Protocol</a>
@@ -85,7 +142,7 @@
   <a href="tel:1234567890">Telephone Link</a>
   <a href="tel:">Empty Tel</a>
     
-  <h2>suspicious-nofollow</h2>
+  <h2>Suspicious — nofollow</h2>
   <a href="mailto:" rel="nofollow">Empty Mailto</a>
   <a href="ftp://" rel="nofollow">Empty FTP</a>
   <a href="javascript:void(0)" rel="nofollow">JS Void NoFollow</a>
@@ -95,27 +152,120 @@
   <a href="filesystem:https://example.com/temporary/myfile" rel="nofollow">Filesystem URL</a>
   <a href="sms:+1234567890" rel="nofollow">SMS Link</a>
 
-</div>
-<button id="addLinkBtn" style="margin: 20px; padding: 10px 20px;">➕ Add Test Link</button>
+  </section>
+
+  <section class="test-section" aria-labelledby="iframe-tests">
+    <h2 id="iframe-tests">iframe links — фрейми</h2>
+    <p>Локальний фрейм має передбачувані приклади. Зовнішній фрейм залежить від доступності мережі та політики вбудовування цільового сайту.</p>
+    <div class="frame-grid">
+      <figure class="frame-test">
+        <figcaption>Локальний same-origin iframe — стабільний тест</figcaption>
+        <iframe
+          src="iframe-same-origin.html"
+          title="Локальний iframe з тестовими посиланнями"
+          loading="eager"
+        ></iframe>
+      </figure>
+      <figure class="frame-test">
+        <figcaption>Перший вебсайт в історії</figcaption>
+        <iframe
+          src="https://info.cern.ch/"
+          title="Перший вебсайт CERN із посиланнями"
+          loading="eager"
+        ></iframe>
+        <p class="test-note">Сторінка завантажується із сайту CERN, тому потрібне підключення до інтернету. Якщо вона недоступна, скористайтеся локальним прикладом поруч.</p>
+      </figure>
+    </div>
+  </section>
+
+  <section class="test-section" aria-labelledby="javascript-tests">
+    <h2 id="javascript-tests">js links — JavaScript-навігація</h2>
+    <p>Пунктирна рамка позначає JavaScript-посилання — це маркер додаткової групи, а не попередження про небезпеку. Колір заливки показує основний тип посилання, а параметр <strong>Highlight JavaScript links</strong> вмикає або вимикає пунктир. Суцільне обведення використовується для iframe.</p>
+    <p class="test-note">Приклади навмисно не ведуть на зовнішні сайти. Не натискайте їх: розширення лише статично аналізує код і показує бейдж JavaScript.</p>
+    <a href="javascript:window.location.href='#js-href'">JavaScript href з буквальним призначенням</a>
+    <button type="button" onclick="window.location.assign('#js-assign'); return false;">onclick: location.assign</button>
+    <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">onclick: window.open</button>
+    <button type="button" onclick="history.pushState({}, '', '#js-history'); return false;">onclick: history.pushState</button>
+    <button type="button" onclick="if (false) window.location.href = nextUrl">onclick: динамічна адреса (unknown)</button>
+    <button type="button" onclick="this.dataset.clicked = 'yes'">Контроль: обробник без навігації</button>
+  </section>
+
+  <section class="test-section" aria-labelledby="mutation-tests">
+    <h2 id="mutation-tests">Перевірка real-time: нові та змінені посилання</h2>
+    <p>Real-time відстежує зміни на цій сторінці після запуску. Увімкніть режим у Settings; якщо Highlight on page load вимкнено — натисніть <strong>Highlight</strong>. Якщо обидві опції ввімкнено, режим запуститься автоматично.</p>
+    <div class="mutation-grid">
+      <article class="mutation-card">
+        <h3>Додати нове посилання</h3>
+        <p>Додасть посилання на інший сайт із <code>rel="nofollow"</code>. Воно з’явиться у блоці нижче.</p>
+        <button type="button" id="addLinkBtn">Додати динамічне посилання</button>
+        <div class="dynamic-link-output" id="dynamic-link-output" aria-live="polite">
+          <p class="test-note">Тут з’явиться щойно додане посилання.</p>
+        </div>
+      </article>
+      <article class="mutation-card">
+        <h3>Змінити наявне посилання</h3>
+        <p>Натискайте кнопки й перевіряйте, як real-time оновлює тип, follow-статус і JavaScript-маркер.</p>
+        <a id="mutable-test-link" href="https://example.org/before" rel="nofollow">Тестове посилання (спочатку external / nofollow)</a>
+        <p class="mutation-status" id="mutation-status" role="status" aria-live="polite">Початковий стан: href веде на example.org, встановлено rel="nofollow", JavaScript-навігації немає.</p>
+        <div class="mutation-actions">
+          <button type="button" id="change-href-btn">Змінити адресу на example.net</button>
+          <button type="button" id="toggle-rel-btn">Перемкнути nofollow</button>
+          <button type="button" id="add-js-handler-btn">Додати JavaScript-навігацію</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  </main>
 
 <script>
-  // Проста функція для додавання посилання в кінець .links
   function appendLink(href, text, rel = '') {
-    const container = document.querySelector('.links');
-    if (!container) return;
+    const container = document.getElementById('dynamic-link-output');
+    if (!container) {
+      return;
+    }
 
     const a = document.createElement('a');
     a.href = href;
     a.textContent = text;
-    a.style.display = 'block'; // для кращої видимості
-    if (rel) a.setAttribute('rel', rel);
-
+    a.style.display = 'block';
+    if (rel) {
+      a.setAttribute('rel', rel);
+    }
     container.appendChild(a);
   }
 
-  // Обробник події для кнопки
   document.getElementById('addLinkBtn').addEventListener('click', () => {
-    appendLink('https://example.com/new-link', '➕ Dynamically Added Link', 'nofollow');
+    const output = document.getElementById('dynamic-link-output');
+    const placeholder = output.querySelector('.test-note');
+    if (placeholder) {
+      placeholder.remove();
+    }
+    appendLink('https://example.com/new-link', 'Динамічно додане посилання', 'nofollow');
+  });
+
+  document.getElementById('change-href-btn').addEventListener('click', () => {
+    const link = document.getElementById('mutable-test-link');
+    link.href = 'https://example.net/after';
+    document.getElementById('mutation-status').textContent =
+      'Адресу змінено на example.net. Посилання залишається nofollow.';
+  });
+
+  document.getElementById('toggle-rel-btn').addEventListener('click', () => {
+    const link = document.getElementById('mutable-test-link');
+    const hasNofollow = link.relList.toggle('nofollow');
+    document.getElementById('mutation-status').textContent = hasNofollow
+      ? 'rel="nofollow" увімкнено.'
+      : 'rel="nofollow" прибрано — розширення має трактувати його як dofollow.';
+  });
+
+  document.getElementById('add-js-handler-btn').addEventListener('click', () => {
+    document.getElementById('mutable-test-link').setAttribute(
+      'onclick',
+      "window.location.assign('#realtime-js-link')"
+    );
+    document.getElementById('mutation-status').textContent =
+      'Додано inline onclick із навігацією на фрагмент цієї сторінки. Очікуйте пунктирний JS-маркер.';
   });
 </script>
 
