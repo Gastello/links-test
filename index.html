@@ -156,7 +156,7 @@
 
   <section class="test-section" aria-labelledby="iframe-tests">
     <h2 id="iframe-tests">iframe links — фрейми</h2>
-    <p>Локальний фрейм має передбачувані приклади. Зовнішній фрейм залежить від доступності мережі та політики вбудовування цільового сайту.</p>
+    <p>Локальний фрейм містить по одному прикладу категорій Internal, Subdomain, External, Suspicious і Unknown. Останній має невідому динамічну JavaScript-адресу. Зовнішній фрейм залежить від доступності мережі та політики вбудовування сайту.</p>
     <div class="frame-grid">
       <figure class="frame-test">
         <figcaption>Локальний same-origin iframe — стабільний тест</figcaption>
@@ -180,8 +180,8 @@
 
   <section class="test-section" aria-labelledby="javascript-tests">
     <h2 id="javascript-tests">js links — JavaScript-навігація</h2>
-    <p>Пунктирна рамка позначає JavaScript-посилання — це маркер додаткової групи, а не попередження про небезпеку. Колір заливки показує основний тип посилання, а параметр <strong>Highlight JavaScript links</strong> вмикає або вимикає пунктир. Суцільне обведення використовується для iframe.</p>
-    <p class="test-note">Приклади навмисно не ведуть на зовнішні сайти. Не натискайте їх: розширення лише статично аналізує код і показує бейдж JavaScript.</p>
+    <p>Бейджі <strong>JS</strong> та <strong>IFRAME</strong> справа позначають JavaScript-навігацію й посилання всередині фрейму. Якщо посилання належить до обох груп, показується один бейдж «IFRAME + JS». Основний колір посилання показує його тип і dofollow/nofollow; для JavaScript-переходу з невідомою адресою може відображатися лише бейдж JS.</p>
+    <p class="test-note">Приклади навмисно не ведуть на зовнішні сайти. Не натискайте їх: розширення лише аналізує код і додає відповідний бейдж.</p>
     <a href="javascript:window.location.href='#js-href'">JavaScript href з буквальним призначенням</a>
     <button type="button" onclick="window.location.assign('#js-assign'); return false;">onclick: location.assign</button>
     <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">onclick: window.open</button>
@@ -265,7 +265,7 @@
       "window.location.assign('#realtime-js-link')"
     );
     document.getElementById('mutation-status').textContent =
-      'Додано inline onclick із навігацією на фрагмент цієї сторінки. Очікуйте пунктирний JS-маркер.';
+      'Додано inline onclick із навігацією на фрагмент цієї сторінки. Очікуйте бейдж JS.';
   });
 </script>
 
