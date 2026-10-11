@@ -235,6 +235,7 @@
     <p class="test-note">Приклади переходять лише на фрагменти цієї сторінки або не виконують навігацію. Звичайний клік по демопосиланнях вимкнений.</p>
     <a class="javascript-fixture" href="javascript:window.location.href='#js-href'">JavaScript href з буквальним призначенням</a>
     <button type="button" onclick="window.location.assign('#js-assign'); return false;">onclick: location.assign</button>
+    <button type="button" onclick="if (false) window.location.assign('https://example.org/javascript-external')">onclick: location.assign — зовнішня адреса (External)</button>
     <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">onclick: window.open</button>
     <button type="button" onclick="history.pushState({}, '', '#js-history'); return false;">onclick: history.pushState</button>
     <button type="button" onclick="if (false) window.location.href = nextUrl">onclick: динамічна адреса (unknown)</button>
