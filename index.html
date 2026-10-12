@@ -50,7 +50,7 @@
         </li>
         <li>
           <strong>Виберіть, що показувати.</strong>
-          Для всіх прикладів установіть тип посилання й follow-статус у <strong>All</strong>. За потреби окремо ввімкніть <strong>Suspicious</strong>, <strong>Unknown destination</strong>, <strong>JavaScript links</strong> та <strong>Iframe links</strong>.
+          Для всіх звичайних прикладів установіть тип посилання й follow-статус у <strong>All</strong>. Для адрес <strong>Other</strong> окремо ввімкніть відповідний прапорець у <strong>Include these groups</strong> — він працює з будь-яким типом посилання. За потреби також увімкніть <strong>Suspicious</strong>, <strong>Unknown destination</strong>, <strong>JavaScript links</strong> та <strong>Iframe links</strong>.
         </li>
         <li>
           <strong>Підсвітіть приклади.</strong>
@@ -73,7 +73,7 @@
     <details class="test-checklist" id="settings-guide">
       <summary>Налаштування, тема й винятки сайтів</summary>
       <div class="expected-results">
-        <div><strong>Поведінка</strong><span><strong>Highlight links when a page loads</strong> запускає перевірку після завантаження. <strong>Monitor new or changed links</strong> відстежує нові посилання та зміни <code>href</code>, <code>rel</code> і inline <code>onclick</code>. Для real-time без автопідсвічування натисніть <strong>Highlight</strong>; з обома опціями сканування й моніторинг запускаються одразу після перезавантаження сторінки.</span></div>
+        <div><strong>Поведінка</strong><span><strong>Highlight links when a page loads</strong> запускає перевірку після завантаження. <strong>Monitor new or changed links</strong> відстежує нові посилання та зміни <code>href</code>, <code>rel</code> і підтримуваних inline-подій навігації. Для real-time без автопідсвічування натисніть <strong>Highlight</strong>; з обома опціями сканування й моніторинг запускаються одразу після перезавантаження сторінки.</span></div>
         <div><strong>Тема й кольори</strong><span>Під час першого запуску Light або Dark відповідає темі браузера. У <strong>Settings → Appearance → Link highlight colors</strong> можна змінити кольори категорій і кольору <strong>Find on page</strong>, а також вимкнути анімований ефект світіння посилань через <strong>Enable glow effect</strong>. <strong>Restore default colors</strong> повертає стандартні кольори й не змінює перемикач світіння.</span></div>
         <div><strong>Додати виняток</strong><span>У <strong>Settings → Site exceptions</strong> введіть домен або URL і натисніть <strong>Add</strong>. Або натисніть <strong>Add current site to exceptions</strong> біля кнопок сканування, щоб додати домен поточного сайту.</span></div>
         <div><strong>Точне зіставлення</strong><span>Виняток застосовується лише до точно вказаної назви домену незалежно від протоколу й порту. Наприклад, <code>example.com</code> не виключає <code>shop.example.com</code> — піддомени додаються окремо. На виключеному сайті сканування й скидання вимкнені.</span></div>
@@ -83,15 +83,16 @@
     <details class="test-checklist">
       <summary>Довідка: значення категорій і бейджів</summary>
       <div class="expected-results">
-        <div><strong>Internal</strong><span>Адреса на тому самому домені, наприклад сторінка в межах <code>gastello.github.io</code>.</span></div>
-        <div><strong>Subdomain</strong><span>Адреса на піддомені поточного домену. Тут <code>media.gastello.github.io</code> є піддоменом <code>gastello.github.io</code>.</span></div>
+        <div><strong>Internal</strong><span>Адреса на тому самому hostname або на кореневому реєстрованому домені. Порожній <code>href=""</code>, <code>href="#"</code> і фрагмент цієї сторінки класифікуються як Internal.</span></div>
+        <div><strong>Subdomain</strong><span>Адреса на будь-якому піддомені реєстрованого домену, навіть якщо джерело вже розташоване на іншому піддомені. Наприклад, із <code>blog.gastello.github.io</code> посилання на <code>media.gastello.github.io</code> також є Subdomain.</span></div>
         <div><strong>External</strong><span>Адреса на іншому сайті. У прикладах використано зарезервовані домени <code>example.com</code>, <code>example.org</code> та <code>example.net</code>.</span></div>
         <div><strong>Dofollow / nofollow</strong><span>Токен <code>nofollow</code> в атрибуті <code>rel</code> визначає follow-статус: якщо він є, посилання має статус nofollow; якщо немає — dofollow. Інші значення <code>rel</code>, зокрема <code>ugc</code> і <code>sponsored</code>, розширення не враховує для цього статусу.</span></div>
-        <div><strong>Suspicious</strong><span>Порожня або placeholder-адреса (наприклад, лише <code>#</code>), некоректний URL чи схема, яку розширення не класифікує як звичайне вебпосилання. Це технічна категорія, а не твердження, що сайт шкідливий; її фільтр працює окремо від Internal/External.</span></div>
+        <div><strong>Other</strong><span>Непорожні адреси дій <code>mailto:</code>, <code>tel:</code> і <code>sms:</code>. Вони показані в окремому лічильнику й підсвічуються лише коли ввімкнено прапорець <strong>Other</strong> у <strong>Include these groups</strong>; це працює незалежно від вибору All, Internal або External.</span></div>
+        <div><strong>Suspicious</strong><span>Елемент <code>&lt;a&gt;</code> без атрибута <code>href</code>, порожня адреса дії, некоректний URL або непідтримувана схема. Це технічна категорія, а не оцінка безпечності сайту.</span></div>
         <div><strong>Unknown destination</strong><span>Розпізнано JavaScript-навігацію, але її кінцеву адресу неможливо визначити статично. Працює окремо від Internal/External, але для підсвічування потрібен також фільтр JavaScript.</span></div>
         <div><strong>JS / IFRAME</strong><span>Бейджі показують додаткові ознаки й можуть поєднуватися з основною категорією; за наявності обох ознак відображається <strong>IFRAME + JS</strong>.</span></div>
       </div>
-      <p class="test-note">Приклади Internal і Subdomain залежать від адреси, з якої відкрито цю демосторінку. Якщо розмістити копію на іншому домені, частина результатів класифікації зміниться.</p>
+      <p class="test-note">Приклади Internal і Subdomain залежать від адреси, з якої відкрито цю демосторінку. Якщо розмістити копію на іншому домені, частина результатів класифікації зміниться. Піддомен визначається відносно реєстрованого домену, зокрема для sibling і вкладених піддоменів.</p>
     </details>
     <details class="test-checklist">
       <summary>Якщо посилання не підсвічується</summary>
@@ -124,6 +125,8 @@
   <a href="https://gastello.github.io/up-one-level">Page on the same domain</a>
   <a href="https://gastello.github.io/links-test/internal-page?utm_source=google&utm_medium=cpc">Internal with UTM</a>
   <a href="https://gastello.github.io/links-test/blog/post#comments">Internal with Hash</a>
+  <a href="#">Посилання лише з # (Internal)</a>
+  <a href="">Порожній href — поточна сторінка (Internal)</a>
   <a href="https://gastello.github.io/links-test/about">About</a>
   <a href="https://gastello.github.io/links-test/blog/post1">Blog Post</a>
   <a href="https://gastello.github.io/links-test/downloads/report.docx">DOCX Report</a>
@@ -168,15 +171,14 @@
   <a href="https://blog.gastello.github.io/links-test/article">Subdomain Article</a>
   <a href="https://media.gastello.github.io/video.mp4">Subdomain Video</a>
   <a href="https://files.sub.gastello.github.io/download.zip">Subdomain File</a>
+  <a href="https://deep.files.sub.gastello.github.io/nested">Nested Subdomain</a>
 
   <h2 id="subdomain-nofollow">Subdomain — nofollow / ugc</h2>
   <a href="https://nofollow.subdomain.gastello.github.io/" rel="nofollow">Subdomain NoFollow</a>
   <a href="https://ugc.subdomain.gastello.github.io/" rel="nofollow ugc">Subdomain UGC NoFollow</a>
 
   <h2 id="suspicious-dofollow">Suspicious — dofollow</h2>
-  <a href="#" id="hash-only-link">Посилання лише з #</a>
   <a id="missing-href-link">Посилання без href</a>
-  <a href="">Посилання з порожнім href</a>
   <a href="http:///badurl">Bad Href</a>
   <a href="hxxp://wrong-protocol.com">Wrong Protocol</a>
   <a href="htps://misspelled-url.com">Misspelled Protocol</a>
@@ -190,7 +192,6 @@
   <a href="vbscript:alert('XSS')">VBScript Injection</a>
   <a href="ftp://ftp.example.com/file.txt">FTP Download</a>
   <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end">Android Intent</a>
-  <a href="tel:1234567890">Telephone Link</a>
   <a href="tel:">Empty Tel</a>
     
   <h2 id="suspicious-nofollow">Suspicious — nofollow</h2>
@@ -201,7 +202,10 @@
   <a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==" rel="nofollow">Base64 Data URI</a>
   <a href="blob:https://example.com/12345" rel="nofollow">Blob URL</a>
   <a href="filesystem:https://example.com/temporary/myfile" rel="nofollow">Filesystem URL</a>
-  <a href="sms:+1234567890" rel="nofollow">SMS Link</a>
+  <h2 id="other-links">Other — не-вебпосилання</h2>
+  <a href="mailto:hello@example.org">Email contact</a>
+  <a href="tel:+1234567890">Telephone Link</a>
+  <a href="sms:+1234567890" rel="nofollow">SMS Link — nofollow</a>
 
   </section>
 
@@ -231,7 +235,7 @@
 
   <section class="test-section" aria-labelledby="javascript-tests">
     <h2 id="javascript-tests">JavaScript-навігація (JS)</h2>
-    <p>Увімкніть <strong>JavaScript links</strong>, щоб додати ці приклади до результатів. Бейдж <strong>JS</strong> показує виявлений код навігації; він не замінює основний тип і follow-статус. Для визначеної адреси колір показує тип посилання, для невизначеної — колір Unknown. Якщо посилання також у фреймі, з’явиться бейдж <strong>IFRAME + JS</strong>.</p>
+    <p>Увімкніть <strong>JavaScript links</strong>, щоб додати ці приклади до результатів. Статично аналізуються <code>javascript:</code> URL та поширені inline-обробники навігації, зокрема <code>onclick</code>, <code>onkeydown</code> і <code>onpointerup</code>. Бейдж <strong>JS</strong> показує виявлений код навігації; він не замінює основний тип і follow-статус. Для визначеної адреси колір показує тип посилання, для невизначеної — колір Unknown. Якщо посилання також у фреймі, з’явиться бейдж <strong>IFRAME + JS</strong>.</p>
     <p class="test-note">Приклади переходять лише на фрагменти цієї сторінки або не виконують навігацію. Звичайний клік по демопосиланнях вимкнений.</p>
     <a class="javascript-fixture" href="javascript:window.location.href='#js-href'">JavaScript href з буквальним призначенням</a>
     <button type="button" onclick="window.location.assign('#js-assign'); return false;">onclick: location.assign</button>
@@ -239,12 +243,14 @@
     <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">onclick: window.open</button>
     <button type="button" onclick="history.pushState({}, '', '#js-history'); return false;">onclick: history.pushState</button>
     <button type="button" onclick="if (false) window.location.href = nextUrl">onclick: динамічна адреса (unknown)</button>
+    <button type="button" onkeydown="if (false) window.location.assign('/links-test/keyboard')">onkeydown: keyboard route</button>
+    <button type="button" onpointerup="window.location.href = pointerDestination">onpointerup: динамічна адреса (unknown)</button>
     <button type="button" onclick="this.dataset.clicked = 'yes'">Контроль: обробник без навігації (не має підсвічуватись)</button>
   </section>
 
   <section class="test-section" aria-labelledby="mutation-tests">
     <h2 id="mutation-tests">Перевірка real-time: динамічні зміни</h2>
-    <p>Ці кнопки додають посилання або змінюють <code>href</code>, <code>rel</code> та inline <code>onclick</code>. Увімкніть <strong>Monitor new or changed links</strong>. Якщо <strong>Highlight links when a page loads</strong> вимкнено, натисніть <strong>Highlight</strong>, щоб запустити спостереження. З обома ввімкненими режимами спостереження почнеться автоматично після перезавантаження. Щоб побачити бейдж JS після додавання <code>onclick</code>, увімкніть також фільтр <strong>JavaScript links</strong>. Посилання після зміни адреси стає Internal на <code>gastello.github.io</code>; результат буде іншим, якщо відкрити копію сторінки локально або розмістити її на іншому домені. Розширення відстежує появу посилань і зміни цих атрибутів, але не може виявити всі обробники, додані скриптами сторінки.</p>
+    <p>Ці кнопки додають посилання або змінюють <code>href</code>, <code>rel</code> та inline-обробники навігації. Увімкніть <strong>Monitor new or changed links</strong>. Якщо <strong>Highlight links when a page loads</strong> вимкнено, натисніть <strong>Highlight</strong>, щоб запустити спостереження. З обома ввімкненими режимами спостереження почнеться автоматично після перезавантаження. Щоб побачити бейдж JS після додавання обробника, увімкніть також фільтр <strong>JavaScript links</strong>. Посилання після зміни адреси стає Internal на <code>gastello.github.io</code>; результат буде іншим, якщо відкрити копію сторінки локально або розмістити її на іншому домені. Розширення відстежує підтримувані inline-події, але не може виявити всі обробники, додані через <code>addEventListener</code> або властивості JavaScript.</p>
     <div class="mutation-grid">
       <article class="mutation-card">
         <h3>Додати нове посилання</h3>
