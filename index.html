@@ -54,15 +54,15 @@
         </li>
         <li>
           <strong>Підсвітіть приклади.</strong>
-          Натисніть <strong>Highlight</strong>. Кольори позначають тип і follow-статус, а бейджі <strong>JS</strong> та <strong>IFRAME</strong> — додаткові властивості посилання.
+          Натисніть <strong>Highlight</strong>. Під час сканування кнопка показує індикатор завантаження й тимчасово блокує повторне натискання. Кольори позначають тип і follow-статус, а бейджі <strong>JS</strong> та <strong>IFRAME</strong> — додаткові властивості посилання.
         </li>
         <li>
           <strong>Перегляньте результати.</strong>
-          У панелі <strong>Full info</strong> шукайте посилання за текстом або URL. Кнопка <strong>Find on page</strong> прокрутить сторінку до нього й тимчасово виділить. <strong>Reset</strong> прибере позначки розширення.
+          У панелі <strong>Full info</strong> шукайте посилання за текстом або URL. Кнопка <strong>Find on page</strong> прокрутить сторінку до нього й тимчасово виділить. <strong>Reset</strong> прибере позначки розширення. Натисніть <strong>Export CSV</strong>, щоб завантажити всі знайдені посилання з доступних фреймів — незалежно від пошуку. Звіт містить анкор, сирий і кінцевий URL, типи й атрибути посилання, а також CSS-селектор DOM і HTML-фрагмент. У DevTools → <strong>Elements</strong> знайдіть селектор через <code>Ctrl+F</code>; URL фрейму у звіті допоможе обрати правильний фрейм.
         </li>
         <li>
           <strong>Увімкніть автоматизацію за бажанням.</strong>
-          <strong>Highlight links when a page loads</strong> автоматично підсвічує сторінку після завантаження. Якщо разом із ним увімкнено <strong>Monitor new or changed links</strong>, нові зміни також відстежуються автоматично. Якщо ввімкнути лише real-time, натисніть <strong>Highlight</strong>, щоб почати спостереження.
+          <strong>Highlight links when a page loads</strong> автоматично підсвічує сторінку після завантаження. Якщо разом із ним увімкнено <strong>Monitor new or changed links</strong>, нові зміни також відстежуються автоматично. Якщо ввімкнути лише real-time, натисніть <strong>Highlight</strong>, щоб почати спостереження; нові доступні iframe після цього підхоплюються автоматично, а відкрита панель оновлює лічильники.
         </li>
       </ol>
       <aside class="guide-callout" aria-label="Важливо про фільтри JavaScript та iframe">
@@ -73,7 +73,7 @@
     <details class="test-checklist" id="settings-guide">
       <summary>Налаштування, тема й винятки сайтів</summary>
       <div class="expected-results">
-        <div><strong>Поведінка</strong><span><strong>Highlight links when a page loads</strong> запускає перевірку після завантаження. <strong>Monitor new or changed links</strong> відстежує нові посилання та зміни <code>href</code>, <code>rel</code> і підтримуваних inline-подій навігації. Для real-time без автопідсвічування натисніть <strong>Highlight</strong>; з обома опціями сканування й моніторинг запускаються одразу після перезавантаження сторінки.</span></div>
+        <div><strong>Поведінка</strong><span><strong>Highlight links when a page loads</strong> запускає перевірку після завантаження. <strong>Monitor new or changed links</strong> відстежує нові посилання та зміни <code>href</code>, <code>rel</code> і підтримуваних inline-подій навігації. Для real-time без автопідсвічування натисніть <strong>Highlight</strong>; з обома опціями сканування й моніторинг запускаються одразу після перезавантаження сторінки. Значки ліворуч від <strong>Add current site to exceptions</strong> показують увімкнені функції.</span></div>
         <div><strong>Тема й кольори</strong><span>Під час першого запуску Light або Dark відповідає темі браузера. У <strong>Settings → Appearance → Link highlight colors</strong> можна змінити кольори категорій і кольору <strong>Find on page</strong>, а також вимкнути анімований ефект світіння посилань через <strong>Enable glow effect</strong>. <strong>Restore default colors</strong> повертає стандартні кольори й не змінює перемикач світіння.</span></div>
         <div><strong>Додати виняток</strong><span>У <strong>Settings → Site exceptions</strong> введіть домен або URL і натисніть <strong>Add</strong>. Або натисніть <strong>Add current site to exceptions</strong> біля кнопок сканування, щоб додати домен поточного сайту.</span></div>
         <div><strong>Точне зіставлення</strong><span>Виняток застосовується лише до точно вказаної назви домену незалежно від протоколу й порту. Наприклад, <code>example.com</code> не виключає <code>shop.example.com</code> — піддомени додаються окремо. На виключеному сайті сканування й скидання вимкнені.</span></div>
@@ -211,7 +211,7 @@
 
   <section class="test-section" aria-labelledby="iframe-tests">
     <h2 id="iframe-tests">Посилання у фреймах (iframe)</h2>
-    <p>Розширення аналізує посилання у доступних HTTP/HTTPS-фреймах відносно адреси самого фрейму. Для позначок у локальному прикладі ввімкніть <strong>Iframe links</strong>; для Unknown додатково потрібні фільтри <strong>Unknown destination</strong> і <strong>JavaScript links</strong>.</p>
+    <p>Розширення аналізує посилання у доступних HTTP/HTTPS-фреймах відносно адреси самого фрейму. Для позначок у локальному прикладі ввімкніть <strong>Iframe links</strong>; для Unknown додатково потрібні фільтри <strong>Unknown destination</strong> і <strong>JavaScript links</strong>. Якщо сканування затримується, popup покаже доступні результати й попередить, що посилання всередині вбудованих фреймів можуть бути пропущені. Якщо ввімкнено <strong>Monitor new or changed links</strong>, відкладено завантажені доступні iframe підхоплюються автоматично, а відкрита панель оновлює лічильники. Повторне натискання <strong>Highlight</strong> також запускає нову спробу сканування всіх фреймів.</p>
     <div class="frame-grid">
       <figure class="frame-test">
         <figcaption>Локальний same-origin iframe — стабільний тест</figcaption>
