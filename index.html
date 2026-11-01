@@ -13,143 +13,113 @@
   <header class="page-header">
     <p class="eyebrow">LINKS HIGHLIGHTER · ПОСІБНИК І ДЕМО</p>
     <h1>Перевірте, як розширення аналізує посилання</h1>
-    <p class="page-intro">Відкрийте цю сторінку в Chrome, щоб перевірити Links Highlighter на прикладах різних типів посилань, фреймів і динамічних змін. Нижче — повний посібник із налаштування, сканування, пошуку, експорту та винятків. Посилання в основному демоблоці й локальному iframe не переходять за адресами; зовнішній iframe CERN є сторонньою сторінкою.</p>
+    <p class="page-intro">Тут можна встановити Links Highlighter, швидко розібратися з основними кнопками й перевірити приклади. Тестові посилання не відкривають сторонні сайти. Вбудована сторінка CERN завантажується окремо й може бути недоступна.</p>
     <section class="install-guide" id="install-guide" aria-labelledby="install-title">
-      <h2 id="install-title">Завантаження та встановлення з GitHub</h2>
-      <p>Цей спосіб встановлює розширення з вихідного коду репозиторію як unpacked extension.</p>
+      <h2 id="install-title">Встановлення</h2>
+      <p>Завантажте готову версію з <a href="https://github.com/Gastello/Links-highlighter" target="_blank" rel="noopener noreferrer">публічного репозиторію</a>. Вихідний код для встановлення не потрібен.</p>
       <ol class="guide-steps">
         <li>
-          <strong>Завантажте ZIP-архів.</strong>
-          Відкрийте <a href="https://github.com/Gastello/Links-highlighter" target="_blank" rel="noopener noreferrer">репозиторій Links Highlighter на GitHub</a>, натисніть <strong>Code → Download ZIP</strong> і дочекайтеся завантаження.
+          Натисніть <strong>Code → Download ZIP</strong>.
         </li>
         <li>
-          <strong>Розпакуйте архів.</strong>
-          Збережіть папку проєкту у постійному місці на комп’ютері. Не видаляйте й не переміщуйте її, поки користуєтеся розширенням. Для встановлення потрібна коренева папка проєкту, у якій лежить <code>manifest.json</code>.
+          Розпакуйте архів і залиште папку в постійному місці.
         </li>
         <li>
-          <strong>Додайте розширення до Chrome.</strong>
-          Відкрийте <code>chrome://extensions</code>, увімкніть <strong>Developer mode</strong>, натисніть <strong>Load unpacked</strong> і виберіть розпаковану кореневу папку проєкту.
+          У Chrome відкрийте <code>chrome://extensions</code>, увімкніть <strong>Developer mode</strong>, натисніть <strong>Load unpacked</strong> і виберіть розпаковану папку, де лежить <code>manifest.json</code>.
         </li>
         <li>
-          <strong>Закріпіть іконку для зручного доступу.</strong>
-          Відкрийте меню розширень за значком пазла на панелі Chrome і натисніть значок закріплення біля Links Highlighter. Після цього popup можна відкривати без пошуку в меню.
-        </li>
-        <li>
-          <strong>Перевірте доступ до сайтів.</strong>
-          Chrome попросить дозволити розширенню читати й змінювати дані на HTTP/HTTPS-сайтах. Це потрібно для аналізу, підсвічування й моніторингу сторінок та доступних фреймів. Для роботи в Incognito окремо відкрийте <strong>Details</strong> розширення та ввімкніть <strong>Allow in incognito</strong>.
+          Щоб швидше відкривати розширення, закріпіть його через меню Chrome за значком пазла.
         </li>
       </ol>
-      <p class="test-note">Для оновлення замініть файли в тій самій папці встановлення на вміст нового архіву, потім натисніть кнопку перезавантаження на картці розширення в <code>chrome://extensions</code>. Не переміщуйте папку, з якої Chrome завантажує розширення.</p>
+      <p class="test-note">Щоб оновити розширення, замініть файли в цій папці вмістом нового архіву й перезавантажте розширення на сторінці <code>chrome://extensions</code>. Для роботи в режимі Incognito відкрийте <strong>Details</strong> розширення та ввімкніть <strong>Allow in incognito</strong>.</p>
     </section>
     <section class="guide" aria-labelledby="guide-title">
       <h2 id="guide-title">Швидкий початок</h2>
       <ol class="guide-steps">
         <li>
-          <strong>Відкрийте розширення.</strong>
-          Натисніть закріплену іконку Links Highlighter у панелі Chrome. Якщо її ще не закріплено, скористайтеся меню розширень за значком пазла.
+          Відкрийте Links Highlighter через закріплену іконку або меню розширень Chrome.
         </li>
         <li>
-          <strong>Виберіть, що підсвічувати.</strong>
-          Для першої перевірки встановіть <strong>Link type: All</strong> і <strong>Follow type: All</strong>. Додаткові прапорці керують групами <strong>Other</strong>, <strong>Suspicious</strong>, <strong>Unknown destination</strong>, <strong>JavaScript links</strong> та <strong>Iframe links</strong>. Щоб побачити всі приклади цієї сторінки, увімкніть кожну групу.
+          Для першої перевірки виберіть <strong>All</strong> у фільтрах <strong>Link type</strong> і <strong>Follow type</strong>.
         </li>
         <li>
-          <strong>Запустіть перевірку.</strong>
-          Натисніть <strong>Highlight</strong>. Розширення сканує доступні фрейми, підсвічує посилання відповідно до фільтрів і, якщо ввімкнено моніторинг, запускає його для поточної сторінки. Кольори відповідають типу та follow-статусу, а бейджі <strong>JS</strong>, <strong>IFRAME</strong> і <strong>hidden</strong> показують додаткові властивості.
+          Натисніть <strong>Highlight</strong>, щоб знайти й підсвітити посилання. <strong>Reset</strong> прибирає підсвітку й ставить моніторинг на паузу в цій вкладці.
         </li>
         <li>
-          <strong>Знайдіть і дослідіть посилання.</strong>
-          <strong>Full info</strong> показує повний список і лічильники незалежно від фільтрів підсвічування. Пошук фільтрує список за текстом або URL. Кнопка з лупою прокручує до посилання, за потреби тимчасово відкриває прихований контейнер і позначає ціль на 5 секунд. Кнопка копіювання копіює URL. <strong>Export CSV</strong> завантажує всі результати з доступних фреймів, а не лише видимі після пошуку.
-        </li>
-        <li>
-          <strong>Налаштуйте автоматичну поведінку.</strong>
-          <strong>Highlight links when a page loads</strong> запускає підсвічування під час завантаження документа. <strong>Monitor new or changed links</strong> відстежує нові посилання та зміни підтримуваних атрибутів. Якщо ввімкнено лише моніторинг, натисніть <strong>Highlight</strong>, щоб почати його на цій сторінці. Відкриття popup саме по собі не повторює підсвічування при завантаженні.
+          Відкрийте <strong>Full info</strong>, щоб переглянути список. Скористайтеся пошуком, лупою біля посилання або кнопкою <strong>Export CSV</strong>.
         </li>
       </ol>
-      <aside class="guide-callout" aria-label="Важливо про фільтри JavaScript та iframe">
-        <strong>Як показати Unknown і посилання у фреймах:</strong>
-        Unknown — це JavaScript-навігація, адресу якої неможливо визначити наперед, а не оцінка безпечності. Для її підсвічування ввімкніть обидва фільтри: <strong>Unknown destination</strong> і <strong>JavaScript links</strong>. Якщо приклад розташований у фреймі, потрібен також фільтр <strong>Iframe links</strong>.
+      <aside class="guide-callout" aria-label="Додаткові фільтри демосторінки">
+        <strong>Додаткові приклади:</strong>
+        Щоб побачити посилання з груп <strong>Other</strong>, <strong>Suspicious</strong>, <strong>Unknown destination</strong>, <strong>JavaScript links</strong> або <strong>Iframe links</strong>, увімкніть відповідні прапорці в <strong>Include these groups</strong>. Для <strong>Unknown destination</strong> також потрібен прапорець <strong>JavaScript links</strong>.
       </aside>
     </section>
-    <details class="test-checklist" id="behavior-guide">
-      <summary>Повний посібник: Highlight, Reset і моніторинг</summary>
-      <div class="expected-results">
-        <div><strong>Highlight</strong><span>Запускає нове сканування з поточними фільтрами. Також поновлює моніторинг на цій сторінці, якщо <strong>Monitor new or changed links</strong> увімкнено. Повторне натискання запускає новий прохід, зокрема повторну спробу для фреймів, які могли не відповісти раніше.</span></div>
-        <div><strong>Reset</strong><span>Reset прибирає підсвітку й ставить моніторинг на паузу лише в поточній вкладці. Налаштування моніторингу не змінюється. Натисніть <strong>Highlight</strong>, щоб знову підсвітити посилання та поновити моніторинг, якщо він увімкнений. Після перезавантаження сторінки діють звичайні налаштування: якщо ввімкнено <strong>Highlight links when a page loads</strong>, посилання підсвітяться автоматично, а моніторинг також запуститься, якщо він увімкнений. Якщо ввімкнено лише моніторинг, натисніть <strong>Highlight</strong> на цій сторінці, щоб його запустити.</span></div>
-        <div><strong>Page on load</strong><span>Підсвічує посилання після завантаження документа. Саме відкриття popup оновлює Full info, але не запускає page-load сканування повторно.</span></div>
-        <div><strong>Real-time</strong><span>Після запуску спостерігає за доданими посиланнями та змінами <code>href</code>, <code>rel</code> і визначеними inline-обробниками навігації. Відстежує нові доступні iframe. Не виконує JavaScript сторінки та не бачить усі обробники, наприклад зареєстровані через <code>addEventListener</code>.</span></div>
-        <div><strong>Режими разом</strong><span>Якщо ввімкнути обидва параметри, після завантаження сторінка підсвічується й одразу починається моніторинг. Відкрита панель popup оновлює Full info, коли отримує повідомлення про зміни.</span></div>
-      </div>
-    </details>
-    <details class="test-checklist" id="full-info-guide">
-      <summary>Повний посібник: Full info, Find і CSV</summary>
-      <div class="expected-results">
-        <div><strong>Лічильники</strong><span>Показують усі виявлені посилання, включно з тими, які поточні фільтри не підсвічують. <strong>External frames</strong> — окремий лічильник елементів iframe із зовнішнім source URL, а не кількість посилань у них.</span></div>
-        <div><strong>Групи</strong><span>Звичайні посилання показані в групах Internal, Subdomain, External, Other, Suspicious і Unknown destination. Посилання з iframe зібрані в окремій групі Iframe з розгортанням окремо для кожного фрейму. JavaScript-посилання з відомою адресою показані в JavaScript, а не дублюються у звичайних групах.</span></div>
-        <div><strong>Приховані посилання</strong><span>Бейдж <strong>hidden</strong> означає, що посилання було приховане стилями або атрибутом приховування під час сканування. <strong>Find on page</strong> тимчасово відкриває прихованих предків, прокручує до цілі й відновлює попередній стан після 5 секунд. Повторне Find або Reset також прибирає попередню позначку.</span></div>
-        <div><strong>Find frame</strong><span>Лупа в заголовку iframe прокручує до iframe-елемента у його батьківському документі. Для посилання всередині iframe розширення спочатку знаходить посилання, а потім прокручує його батьківські iframe-контейнери.</span></div>
-        <div><strong>Копіювання</strong><span>Кнопка копіює знайдений URL, а в групі iframe — адресу джерела фрейму. Якщо копіювання не вдалося, popup повідомить про помилку; Chrome може попросити дозволити clipboard.</span></div>
-        <div><strong>CSV</strong><span>Експорт містить усі знайдені посилання з доступних вбудованих сторінок (фреймів), навіть якщо пошук у popup приховав їх зі списку. Файл можна відкрити як таблицю. У ній є адреса, текст, тип і статус кожного посилання; також додані технічні відомості для діагностики — зазвичай їх можна ігнорувати. Для посилань на самій сторінці поле <strong>Frame URL</strong> порожнє, а для посилань усередині фрейму там указана адреса вбудованої сторінки.</span></div>
-      </div>
-    </details>
-    <details class="test-checklist" id="settings-guide">
-      <summary>Налаштування, тема й винятки сайтів</summary>
-      <div class="expected-results">
-        <div><strong>Поведінка</strong><span>Два перемикачі керують page-on-load і real-time режимами окремо. Значки біля <strong>Add current site to exceptions</strong> показують, які опції збережені. Деталі роботи кнопок і паузи після Reset наведені вище.</span></div>
-        <div><strong>Тема й кольори</strong><span>За замовчуванням popup автоматично перемикається між Light і Dark відповідно до теми системи. У <strong>Settings → Appearance → Popup theme</strong> можна зафіксувати Classic, Light або Dark: системна тема змінюється разом із налаштуванням ОС, а вибрана тема — ні. У <strong>Settings → Appearance → Link highlight colors</strong> налаштовуються кольори для типів посилань і follow-статусів, а також колір позначки <strong>Find on page</strong>. <strong>Enable glow effect</strong> вмикає або вимикає анімоване світіння навколо підсвічених посилань. <strong>Restore default colors</strong> відновлює палітру, не змінюючи перемикач світіння.</span></div>
-        <div><strong>Додати виняток</strong><span>Виняток означає, що Links Highlighter не підсвічуватиме посилання на вказаному сайті. Щоб додати такий сайт, у <strong>Settings → Site exceptions</strong> введіть його домен або URL і натисніть <strong>Add</strong>. Або натисніть <strong>Add current site to exceptions</strong> біля кнопок сканування, щоб вимкнути підсвічування для поточного сайту.</span></div>
-        <div><strong>Точне зіставлення</strong><span><code>example.com</code> виключає лише сам hostname, не його піддомени. Запис <code>*.example.com</code> виключає всі піддомени, включно з вкладеними (<code>shop.example.com</code>, <code>a.shop.example.com</code>), але не сам <code>example.com</code>. Протокол і порт не впливають на збіг. На виключеному сайті автоматичне й ручне підсвічування вимкнені; видаліть виняток, щоб повернути функцію.</span></div>
-        <div><strong>Синхронізація</strong><span>Налаштування, кольори та винятки зберігаються через Chrome Sync і можуть синхронізуватися між браузерами з тим самим профілем Chrome.</span></div>
-      </div>
-    </details>
-    <details class="test-checklist" id="classification-guide">
-      <summary>Довідка: значення категорій і бейджів</summary>
-      <div class="expected-results">
-        <div><strong>Internal</strong><span>Адреса на тому самому hostname або на кореневому реєстрованому домені. Порожній <code>href=""</code>, <code>href="#"</code> і фрагмент цієї сторінки класифікуються як Internal.</span></div>
-        <div><strong>Subdomain</strong><span>Адреса на будь-якому піддомені реєстрованого домену, навіть якщо джерело вже розташоване на іншому піддомені. Наприклад, із <code>blog.gastello.github.io</code> посилання на <code>media.gastello.github.io</code> також є Subdomain.</span></div>
-        <div><strong>External</strong><span>Адреса на іншому сайті. У прикладах використано зарезервовані домени <code>example.com</code>, <code>example.org</code> та <code>example.net</code>.</span></div>
-        <div><strong>Dofollow / nofollow</strong><span>Токен <code>nofollow</code> в атрибуті <code>rel</code> визначає follow-статус: якщо він є, посилання має статус nofollow; якщо немає — dofollow. Інші значення <code>rel</code>, зокрема <code>ugc</code> і <code>sponsored</code>, розширення не враховує для цього статусу.</span></div>
-        <div><strong>Other</strong><span>Непорожні адреси дій <code>mailto:</code>, <code>tel:</code> і <code>sms:</code>. Вони показані в окремому лічильнику й підсвічуються лише коли ввімкнено прапорець <strong>Other</strong> у <strong>Include these groups</strong>; це працює незалежно від вибору All, Internal або External.</span></div>
-        <div><strong>Suspicious</strong><span>Елемент <code>&lt;a&gt;</code> без атрибута <code>href</code>, порожня адреса дії, некоректний URL або непідтримувана схема. Це технічна категорія, а не оцінка безпечності сайту.</span></div>
-        <div><strong>Unknown destination</strong><span>Розпізнано JavaScript-навігацію, але її кінцеву адресу неможливо визначити статично. Працює окремо від Internal/External, але для підсвічування потрібен також фільтр JavaScript.</span></div>
-        <div><strong>JS / IFRAME</strong><span>Бейджі показують додаткові ознаки й можуть поєднуватися з основною категорією; за наявності обох ознак відображається <strong>IFRAME + JS</strong>.</span></div>
-      </div>
-      <p class="test-note">Приклади Internal і Subdomain залежать від адреси, з якої відкрито цю демосторінку. Якщо розмістити копію на іншому домені, частина результатів класифікації зміниться. Піддомен визначається відносно реєстрованого домену, зокрема для sibling і вкладених піддоменів.</p>
-    </details>
-    <details class="test-checklist" id="troubleshooting-guide">
-      <summary>Якщо посилання не підсвічується</summary>
-      <ul class="troubleshooting-list">
-        <li>Перевірте тип посилання та follow-фільтр. Для всіх прикладів виберіть <strong>All</strong>.</li>
-        <li>Для Suspicious і Unknown увімкніть відповідний окремий фільтр. Для Unknown також потрібен фільтр JavaScript, а для прикладів у фреймі — iframe.</li>
-        <li>Переконайтеся, що Chrome дозволив розширенню доступ до цього сайту. Після встановлення або зміни дозволів оновіть вкладку.</li>
-        <li>Внутрішні сторінки Chrome та деякі вбудовані документи недоступні для розширень. Вміст зовнішнього фрейму додатково залежить від мережі й політики сайту.</li>
-        <li>Якщо статус повідомляє про неповні результати, розширення не отримало дані з одного чи кількох фреймів. Інші доступні фрейми все одно перевіряються.</li>
-        <li>Якщо після <strong>Reset</strong> сторінка знову підсвічується після натискання <strong>Highlight</strong>, це очікувано: Highlight запускає сканування заново. Саме відкриття popup не повинно повторно запускати page-on-load підсвічування.</li>
-        <li>Повідомлення про помилки шрифту в DevTools зазвичай належать сайту. Якщо Find не приводить ціль у видиму область, перевірте, чи не заблокував браузер скрипти для сторінки або її фрейму.</li>
-      </ul>
-    </details>
-    <details class="test-checklist" id="privacy-guide">
-      <summary>Дозволи та приватність</summary>
-      <div class="expected-results">
-        <div><strong>Доступ до сайтів</strong><span>Для аналізу, підсвічування, page-on-load і real-time Chrome надає розширенню доступ до HTTP/HTTPS-сторінок та дозволених фреймів. Chrome може показати широке попередження про доступ до сайтів.</span></div>
-        <div><strong>Локальна обробка</strong><span>Класифікація та CSV-експорт виконуються локально у браузері; посилання й вміст сторінок не відправляються на сервер розробника.</span></div>
-        <div><strong>Збереження налаштувань</strong><span>Фільтри, кольори й винятки зберігаються у Chrome Sync та можуть синхронізуватися з іншими браузерами профілю. Дані прокрутки popup зберігаються лише для поточної сесії Chrome, окремо для вкладки та завантаження сторінки.</span></div>
-        <div><strong>Обмеження Chrome</strong><span>Розширення не може працювати на сторінках <code>chrome://</code> та деяких захищених сторінках. Вміст cross-origin iframe залежить від дозволів Chrome і політики сайту.</span></div>
-      </div>
-    </details>
-    <nav class="test-navigation" aria-label="Розділи тестової сторінки">
+    <nav class="test-navigation" aria-label="Навігація сторінкою">
       <a href="#install-guide">Встановлення</a>
       <a href="#guide-title">Швидкий початок</a>
       <a href="#link-fixtures">Типи посилань</a>
       <a href="#iframe-tests">Iframe</a>
       <a href="#javascript-tests">JavaScript</a>
       <a href="#mutation-tests">Динамічні зміни</a>
-      <a href="#behavior-guide">Highlight і Reset</a>
-      <a href="#full-info-guide">Full info і CSV</a>
-      <a href="#settings-guide">Налаштування й винятки</a>
-      <a href="#classification-guide">Класифікація</a>
-      <a href="#troubleshooting-guide">Усунення проблем</a>
-      <a href="#privacy-guide">Дозволи й приватність</a>
     </nav>
+    <details class="test-checklist" id="behavior-guide">
+      <summary>Highlight, Reset і моніторинг</summary>
+      <div class="expected-results">
+        <div><strong>Highlight</strong><span>Сканує сторінку з поточними фільтрами. Якщо ввімкнено <strong>Monitor new or changed links</strong>, також запускає моніторинг.</span></div>
+        <div><strong>Reset</strong><span>Прибирає підсвітку й ставить моніторинг на паузу лише в цій вкладці. Налаштування не змінюються. Натисніть <strong>Highlight</strong>, щоб продовжити.</span></div>
+        <div><strong>Автоматичний запуск</strong><span><strong>Highlight links when a page loads</strong> сканує сторінку після завантаження. Якщо ввімкнено лише моніторинг, після перезавантаження натисніть <strong>Highlight</strong>. Якщо ввімкнено обидва параметри, сканування й моніторинг почнуться автоматично.</span></div>
+        <div><strong>Моніторинг</strong><span>Після запуску відстежує нові або змінені посилання. Якщо ввімкнути його після <strong>Highlight</strong>, він почне працювати на цій сторінці одразу.</span></div>
+      </div>
+    </details>
+    <details class="test-checklist" id="full-info-guide">
+      <summary>Full info, пошук і CSV</summary>
+      <div class="expected-results">
+        <div><strong>Список</strong><span><strong>Full info</strong> показує знайдені посилання незалежно від того, які з них підсвічені. Посилання у вбудованих сторінках зібрані в окремій групі <strong>Iframe</strong>.</span></div>
+        <div><strong>Пошук і лупа</strong><span>Пошук знаходить посилання за текстом або адресою. Натисніть лупу, щоб перейти до посилання на сторінці; приховане посилання тимчасово стане видимим.</span></div>
+        <div><strong>Копіювання</strong><span>Кнопка копіює адресу посилання. У групі <strong>Iframe</strong> можна скопіювати адресу вбудованої сторінки.</span></div>
+        <div><strong>Export CSV</strong><span>Завантажує всі знайдені посилання з доступних сторінок, навіть якщо пошук приховав їх у списку. Таблицю можна відкрити у програмі для роботи з таблицями. Для посилань на основній сторінці поле <strong>Frame URL</strong> порожнє; для посилань у фреймі в ньому вказана адреса цієї сторінки.</span></div>
+      </div>
+    </details>
+    <details class="test-checklist" id="settings-guide">
+      <summary>Налаштування й винятки</summary>
+      <div class="expected-results">
+        <div><strong>Тема й кольори</strong><span>За замовчуванням тема popup відповідає темі комп’ютера. У <strong>Settings → Appearance</strong> можна вибрати Classic, Light або Dark та змінити кольори підсвічування.</span></div>
+        <div><strong>Виняток для сайту</strong><span>Виняток вимикає підсвічування на сайті. У <strong>Settings → Site exceptions</strong> введіть домен або URL і натисніть <strong>Add</strong>. Або натисніть <strong>Add current site to exceptions</strong> біля кнопок сканування.</span></div>
+        <div><strong>Піддомени</strong><span><code>example.com</code> стосується лише цього домену. <code>*.example.com</code> — його піддоменів, але не самого <code>example.com</code>. Щоб знову підсвічувати посилання, видаліть виняток зі списку.</span></div>
+        <div><strong>Збереження</strong><span>Налаштування та винятки зберігаються в Chrome Sync і можуть синхронізуватися з іншими пристроями вашого профілю Chrome.</span></div>
+      </div>
+    </details>
+    <details class="test-checklist" id="classification-guide">
+      <summary>Що означають категорії</summary>
+      <div class="expected-results">
+        <div><strong>Internal</strong><span>Посилання на поточний сайт або його основний домен.</span></div>
+        <div><strong>Subdomain</strong><span>Посилання на піддомен того самого основного домену, наприклад <code>blog.example.com</code>.</span></div>
+        <div><strong>External</strong><span>Посилання на інший сайт.</span></div>
+        <div><strong>Dofollow / nofollow</strong><span>Статус визначається за атрибутом посилання. Позначка <code>nofollow</code> означає nofollow; без неї — dofollow.</span></div>
+        <div><strong>Other</strong><span>Адреси електронної пошти, телефону й SMS. Цю групу потрібно ввімкнути окремо.</span></div>
+        <div><strong>Suspicious</strong><span>Неповна, некоректна або непідтримувана адреса. Це не оцінка безпечності сайту.</span></div>
+        <div><strong>Unknown destination</strong><span>Розпізнано JavaScript-перехід, але його адресу неможливо визначити наперед.</span></div>
+        <div><strong>JS / IFRAME</strong><span>Бейджі показують, що посилання пов’язане з JavaScript або розташоване у вбудованій сторінці.</span></div>
+      </div>
+      <p class="test-note">Результат для Internal і Subdomain залежить від адреси, з якої відкрито цю сторінку.</p>
+    </details>
+    <details class="test-checklist" id="troubleshooting-guide">
+      <summary>Якщо посилання не підсвічується</summary>
+      <ul class="troubleshooting-list">
+        <li>Щоб побачити всі звичайні приклади, виберіть <strong>All</strong> у фільтрах типу й статусу.</li>
+        <li>Для <strong>Other</strong>, <strong>Suspicious</strong>, <strong>Unknown destination</strong>, JavaScript і iframe увімкніть відповідні прапорці.</li>
+        <li>Перевірте, чи Chrome дозволив розширенню працювати на сайті, і перезавантажте вкладку після зміни дозволів.</li>
+        <li>Розширення не працює на сторінках Chrome на кшталт <code>chrome://extensions</code>. Деякі вбудовані сторінки також можуть бути недоступні.</li>
+        <li>Якщо повідомлено про неповні результати, розширення не змогло прочитати один або кілька фреймів. Інші доступні посилання все одно перевіряються.</li>
+      </ul>
+    </details>
+    <details class="test-checklist" id="privacy-guide">
+      <summary>Дозволи та приватність</summary>
+      <div class="expected-results">
+        <div><strong>Доступ до сторінок</strong><span>Chrome попросить дозволити розширенню читати сторінки, щоб знаходити й підсвічувати посилання.</span></div>
+        <div><strong>Ваші дані</strong><span>Посилання обробляються у браузері й не надсилаються розробнику. Налаштування та винятки можуть синхронізуватися через Chrome Sync.</span></div>
+      </div>
+    </details>
   </header>
   <main id="main-content">
   <section class="links" id="link-fixtures" aria-label="Посилання для перевірки класифікації">
@@ -249,8 +219,8 @@
   </section>
 
   <section class="test-section" aria-labelledby="iframe-tests">
-    <h2 id="iframe-tests">Посилання у фреймах (iframe)</h2>
-    <p>Розширення аналізує посилання у доступних HTTP/HTTPS-фреймах: відносні адреси розв'язуються відносно документа iframe, а тип посилання класифікується відносно поточного сайту. У Full info посилання з iframe показані окремо від Internal, Subdomain та External. Для позначок у локальному прикладі ввімкніть <strong>Iframe links</strong>; для Unknown додатково потрібні фільтри <strong>Unknown destination</strong> і <strong>JavaScript links</strong>. Якщо сканування затримується, popup покаже доступні результати й попередить, що посилання всередині вбудованих фреймів можуть бути пропущені. Якщо ввімкнено <strong>Monitor new or changed links</strong>, відкладено завантажені доступні iframe підхоплюються автоматично, а відкрита панель оновлює лічильники. Повторне натискання <strong>Highlight</strong> також запускає нову спробу сканування всіх фреймів.</p>
+    <h2 id="iframe-tests">Посилання у вбудованих сторінках (iframe)</h2>
+    <p>Увімкніть <strong>Iframe links</strong>, щоб побачити посилання у вбудованих сторінках. Локальний приклад нижче доступний без сторонніх сайтів. Вміст CERN залежить від мережі й може не завантажитися.</p>
     <div class="frame-grid">
       <figure class="frame-test">
         <figcaption>Локальний same-origin iframe — стабільний тест</figcaption>
@@ -274,22 +244,21 @@
 
   <section class="test-section" aria-labelledby="javascript-tests">
     <h2 id="javascript-tests">JavaScript-навігація (JS)</h2>
-    <p>Увімкніть <strong>JavaScript links</strong>, щоб додати ці приклади до результатів. Статично аналізуються <code>javascript:</code> URL та поширені inline-обробники навігації, зокрема <code>onclick</code>, <code>onkeydown</code> і <code>onpointerup</code>. Бейдж <strong>JS</strong> показує виявлений код навігації; він не замінює основний тип і follow-статус. Для визначеної адреси колір показує тип посилання, для невизначеної — колір Unknown. Якщо посилання також у фреймі, з’явиться бейдж <strong>IFRAME + JS</strong>.</p>
-    <p class="test-note">Приклади переходять лише на фрагменти цієї сторінки або не виконують навігацію. Звичайний клік по демопосиланнях вимкнений.</p>
-    <a class="javascript-fixture" href="javascript:window.location.href='#js-href'">JavaScript href з буквальним призначенням</a>
-    <button type="button" onclick="window.location.assign('#js-assign'); return false;">onclick: location.assign</button>
-    <button type="button" onclick="if (false) window.location.assign('https://example.org/javascript-external')">onclick: location.assign — зовнішня адреса (External)</button>
-    <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">onclick: window.open</button>
-    <button type="button" onclick="history.pushState({}, '', '#js-history'); return false;">onclick: history.pushState</button>
-    <button type="button" onclick="if (false) window.location.href = nextUrl">onclick: динамічна адреса (unknown)</button>
-    <button type="button" onkeydown="if (false) window.location.assign('/links-test/keyboard')">onkeydown: keyboard route</button>
-    <button type="button" onpointerup="window.location.href = pointerDestination">onpointerup: динамічна адреса (unknown)</button>
-    <button type="button" onclick="this.dataset.clicked = 'yes'">Контроль: обробник без навігації (не має підсвічуватись)</button>
+    <p>Увімкніть <strong>JavaScript links</strong>, щоб побачити ці приклади. Одні переходять на фрагмент цієї сторінки, в інших адресу не можна визначити заздалегідь. Клік по тестових посиланнях не відкриває сторонні сайти.</p>
+    <a class="javascript-fixture" href="javascript:window.location.href='#js-href'">JS-посилання з відомою адресою</a>
+    <button type="button" onclick="window.location.assign('#js-assign'); return false;">JS-кнопка: перехід на цій сторінці</button>
+    <button type="button" onclick="if (false) window.location.assign('https://example.org/javascript-external')">JS-кнопка: зовнішня адреса</button>
+    <button type="button" onclick="window.open('#js-window-open', '_self'); return false;">JS-кнопка: відкрити фрагмент</button>
+    <button type="button" onclick="history.pushState({}, '', '#js-history'); return false;">JS-кнопка: змінити адресу сторінки</button>
+    <button type="button" onclick="if (false) window.location.href = nextUrl">JS-кнопка: невідома адреса</button>
+    <button type="button" onkeydown="if (false) window.location.assign('/links-test/keyboard')">Перехід після натискання клавіші</button>
+    <button type="button" onpointerup="window.location.href = pointerDestination">Перехід після дотику: невідома адреса</button>
+    <button type="button" onclick="this.dataset.clicked = 'yes'">Перевірка: кнопка без переходу</button>
   </section>
 
   <section class="test-section" aria-labelledby="mutation-tests">
-    <h2 id="mutation-tests">Перевірка real-time: динамічні зміни</h2>
-    <p>Ці кнопки додають посилання або змінюють <code>href</code>, <code>rel</code> та inline-обробники навігації. Увімкніть <strong>Monitor new or changed links</strong>. Якщо <strong>Highlight links when a page loads</strong> вимкнено, натисніть <strong>Highlight</strong>, щоб запустити спостереження. З обома ввімкненими режимами спостереження почнеться автоматично після перезавантаження. Щоб побачити бейдж JS після додавання обробника, увімкніть також фільтр <strong>JavaScript links</strong>. Посилання після зміни адреси стає Internal на <code>gastello.github.io</code>; результат буде іншим, якщо відкрити копію сторінки локально або розмістити її на іншому домені. Розширення відстежує підтримувані inline-події, але не може виявити всі обробники, додані через <code>addEventListener</code> або властивості JavaScript.</p>
+    <h2 id="mutation-tests">Перевірка нових і змінених посилань</h2>
+    <p>Щоб побачити зміни одразу, увімкніть <strong>Monitor new or changed links</strong> і натисніть <strong>Highlight</strong>. Кнопки нижче додадуть посилання або змінять його адресу, статус nofollow чи JavaScript-позначку. Щоб побачити JavaScript-позначку, увімкніть також <strong>JavaScript links</strong>. На цій сторінці зміна адреси на gastello.github.io визначається як Internal.</p>
     <div class="mutation-grid">
       <article class="mutation-card">
         <h3>Додати нове посилання</h3>
@@ -305,7 +274,7 @@
         <a id="mutable-test-link" href="https://example.org/before" rel="nofollow">Тестове посилання (External — nofollow)</a>
         <p class="mutation-status" id="mutation-status" role="status" aria-live="polite">Початковий стан: зовнішня адреса, rel="nofollow", JavaScript-навігації немає.</p>
         <div class="mutation-actions">
-          <button type="button" id="change-href-btn">Змінити адресу на gastello.github.io</button>
+          <button type="button" id="change-href-btn">Змінити адресу на цей сайт</button>
           <button type="button" id="toggle-rel-btn">Перемкнути nofollow</button>
           <button type="button" id="add-js-handler-btn">Додати JavaScript-навігацію</button>
         </div>
