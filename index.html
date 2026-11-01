@@ -68,7 +68,7 @@
         <div><strong>Highlight</strong><span>Сканує сторінку з поточними фільтрами. Якщо ввімкнено <strong>Monitor new or changed links</strong>, також запускає моніторинг.</span></div>
         <div><strong>Reset</strong><span>Прибирає підсвітку й ставить моніторинг на паузу лише в цій вкладці. Налаштування не змінюються. Натисніть <strong>Highlight</strong>, щоб продовжити.</span></div>
         <div><strong>Автоматичний запуск</strong><span><strong>Highlight links when a page loads</strong> сканує сторінку після завантаження. Якщо ввімкнено лише моніторинг, після перезавантаження натисніть <strong>Highlight</strong>. Якщо ввімкнено обидва параметри, сканування й моніторинг почнуться автоматично.</span></div>
-        <div><strong>Моніторинг</strong><span>Після запуску відстежує нові або змінені посилання. Якщо ввімкнути його після <strong>Highlight</strong>, він почне працювати на цій сторінці одразу.</span></div>
+        <div><strong>Моніторинг</strong><span><strong>Highlight links when a page loads</strong> після запуску відстежує нові або змінені посилання.</span></div>
       </div>
     </details>
     <details class="test-checklist" id="full-info-guide">
@@ -77,7 +77,7 @@
         <div><strong>Список</strong><span><strong>Full info</strong> показує знайдені посилання незалежно від того, які з них підсвічені. Посилання у вбудованих сторінках зібрані в окремій групі <strong>Iframe</strong>.</span></div>
         <div><strong>Пошук і лупа</strong><span>Пошук знаходить посилання за текстом або адресою. Натисніть лупу, щоб перейти до посилання на сторінці; приховане посилання тимчасово стане видимим.</span></div>
         <div><strong>Копіювання</strong><span>Кнопка копіює адресу посилання. У групі <strong>Iframe</strong> можна скопіювати адресу вбудованої сторінки.</span></div>
-        <div><strong>Export CSV</strong><span>Завантажує всі знайдені посилання з доступних сторінок, навіть якщо пошук приховав їх у списку. Таблицю можна відкрити у програмі для роботи з таблицями. Для посилань на основній сторінці поле <strong>Frame URL</strong> порожнє; для посилань у фреймі в ньому вказана адреса цієї сторінки.</span></div>
+        <div><strong>Export CSV</strong><span>Завантажує всі знайдені посилання з доступних сторінок. Таблицю можна відкрити у програмі для роботи з таблицями. Для посилань на основній сторінці поле <strong>Frame URL</strong> порожнє; для посилань у фреймі в ньому вказана адреса цієї сторінки.</span></div>
       </div>
     </details>
     <details class="test-checklist" id="settings-guide">
@@ -86,7 +86,7 @@
         <div><strong>Тема й кольори</strong><span>За замовчуванням тема popup відповідає темі комп’ютера. У <strong>Settings → Appearance</strong> можна вибрати Classic, Light або Dark та змінити кольори підсвічування.</span></div>
         <div><strong>Виняток для сайту</strong><span>Виняток вимикає підсвічування на сайті. У <strong>Settings → Site exceptions</strong> введіть домен або URL і натисніть <strong>Add</strong>. Або натисніть <strong>Add current site to exceptions</strong> біля кнопок сканування.</span></div>
         <div><strong>Піддомени</strong><span><code>example.com</code> стосується лише цього домену. <code>*.example.com</code> — його піддоменів, але не самого <code>example.com</code>. Щоб знову підсвічувати посилання, видаліть виняток зі списку.</span></div>
-        <div><strong>Збереження</strong><span>Налаштування та винятки зберігаються в Chrome Sync і можуть синхронізуватися з іншими пристроями вашого профілю Chrome.</span></div>
+        <div><strong>Синхронізація</strong><span>Налаштування й винятки можуть синхронізуватися, якщо на пристроях використовується той самий Google-акаунт, увімкнена синхронізація розширень і збігається ID розширення. Перевірте ID на сторінці <code>chrome://extensions</code> на обох пристроях. У версії, встановленій через <strong>Load unpacked</strong>, ID може відрізнятися. Щоб перевірити синхронізацію, змініть тему popup на одному пристрої й перевірте її на іншому.</span></div>
       </div>
     </details>
     <details class="test-checklist" id="classification-guide">
@@ -101,7 +101,6 @@
         <div><strong>Unknown destination</strong><span>Розпізнано JavaScript-перехід, але його адресу неможливо визначити наперед.</span></div>
         <div><strong>JS / IFRAME</strong><span>Бейджі показують, що посилання пов’язане з JavaScript або розташоване у вбудованій сторінці.</span></div>
       </div>
-      <p class="test-note">Результат для Internal і Subdomain залежить від адреси, з якої відкрито цю сторінку.</p>
     </details>
     <details class="test-checklist" id="troubleshooting-guide">
       <summary>Якщо посилання не підсвічується</summary>
@@ -117,7 +116,7 @@
       <summary>Дозволи та приватність</summary>
       <div class="expected-results">
         <div><strong>Доступ до сторінок</strong><span>Chrome попросить дозволити розширенню читати сторінки, щоб знаходити й підсвічувати посилання.</span></div>
-        <div><strong>Ваші дані</strong><span>Посилання обробляються у браузері й не надсилаються розробнику. Налаштування та винятки можуть синхронізуватися через Chrome Sync.</span></div>
+        <div><strong>Ваші дані</strong><span>Посилання обробляються у браузері й не надсилаються розробнику.</span></div>
       </div>
     </details>
   </header>
